@@ -870,4 +870,70 @@ public static unsafe partial class ObsGraphics
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_unregister_loss_callbacks(void* data);
+
+    [NativeTypeName("#define GS_MAX_TEXTURES 8")]
+    public const int GS_MAX_TEXTURES = 8;
+
+    [NativeTypeName("#define GS_BUILD_MIPMAPS (1 << 0)")]
+    public const int GS_BUILD_MIPMAPS = (1 << 0);
+
+    [NativeTypeName("#define GS_DYNAMIC (1 << 1)")]
+    public const int GS_DYNAMIC = (1 << 1);
+
+    [NativeTypeName("#define GS_RENDER_TARGET (1 << 2)")]
+    public const int GS_RENDER_TARGET = (1 << 2);
+
+    [NativeTypeName("#define GS_GL_DUMMYTEX (1 << 3)")]
+    public const int GS_GL_DUMMYTEX = (1 << 3);
+
+    [NativeTypeName("#define GS_DUP_BUFFER (1 << 4)")]
+    public const int GS_DUP_BUFFER = (1 << 4);
+
+    [NativeTypeName("#define GS_SHARED_TEX (1 << 5)")]
+    public const int GS_SHARED_TEX = (1 << 5);
+
+    [NativeTypeName("#define GS_SHARED_KM_TEX (1 << 6)")]
+    public const int GS_SHARED_KM_TEX = (1 << 6);
+
+    [NativeTypeName("#define GS_SUCCESS 0")]
+    public const int GS_SUCCESS = 0;
+
+    [NativeTypeName("#define GS_ERROR_FAIL -1")]
+    public const int GS_ERROR_FAIL = -1;
+
+    [NativeTypeName("#define GS_ERROR_MODULE_NOT_FOUND -2")]
+    public const int GS_ERROR_MODULE_NOT_FOUND = -2;
+
+    [NativeTypeName("#define GS_ERROR_NOT_SUPPORTED -3")]
+    public const int GS_ERROR_NOT_SUPPORTED = -3;
+
+    [NativeTypeName("#define GS_DEVICE_OPENGL 1")]
+    public const int GS_DEVICE_OPENGL = 1;
+
+    [NativeTypeName("#define GS_DEVICE_DIRECT3D_11 2")]
+    public const int GS_DEVICE_DIRECT3D_11 = 2;
+
+    [NativeTypeName("#define GS_FLIP_U (1 << 0)")]
+    public const int GS_FLIP_U = (1 << 0);
+
+    [NativeTypeName("#define GS_FLIP_V (1 << 1)")]
+    public const int GS_FLIP_V = (1 << 1);
+
+    [NativeTypeName("#define GS_CLEAR_COLOR (1 << 0)")]
+    public const int GS_CLEAR_COLOR = (1 << 0);
+
+    [NativeTypeName("#define GS_CLEAR_DEPTH (1 << 1)")]
+    public const int GS_CLEAR_DEPTH = (1 << 1);
+
+    [NativeTypeName("#define GS_CLEAR_STENCIL (1 << 2)")]
+    public const int GS_CLEAR_STENCIL = (1 << 2);
+
+    [NativeTypeName("#define GS_USE_DEBUG_MARKERS 0")]
+    public const int GS_USE_DEBUG_MARKERS = 0;
+
+    [NativeTypeName("#define GS_INVALID_HANDLE (uint32_t) - 1")]
+    public const uint GS_INVALID_HANDLE = unchecked((uint)(-1));
+
+    [NativeTypeName("#define GS_WAIT_INFINITE (uint32_t) - 1")]
+    public const uint GS_WAIT_INFINITE = unchecked((uint)(-1));
 }

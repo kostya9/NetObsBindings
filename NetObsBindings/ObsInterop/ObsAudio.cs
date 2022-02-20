@@ -40,4 +40,25 @@ public static unsafe partial class ObsAudio
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const struct audio_output_info *")]
     public static extern audio_output_info* audio_output_get_info([NativeTypeName("const audio_t *")] audio_output* audio);
+
+    [NativeTypeName("#define MAX_AUDIO_MIXES 6")]
+    public const int MAX_AUDIO_MIXES = 6;
+
+    [NativeTypeName("#define MAX_AUDIO_CHANNELS 8")]
+    public const int MAX_AUDIO_CHANNELS = 8;
+
+    [NativeTypeName("#define AUDIO_OUTPUT_FRAMES 1024")]
+    public const int AUDIO_OUTPUT_FRAMES = 1024;
+
+    [NativeTypeName("#define TOTAL_AUDIO_SIZE (MAX_AUDIO_MIXES * MAX_AUDIO_CHANNELS * AUDIO_OUTPUT_FRAMES * \\\r\n\t sizeof(float))")]
+    public const ulong TOTAL_AUDIO_SIZE = (6 * 8 * 1024 * 4);
+
+    [NativeTypeName("#define AUDIO_OUTPUT_SUCCESS 0")]
+    public const int AUDIO_OUTPUT_SUCCESS = 0;
+
+    [NativeTypeName("#define AUDIO_OUTPUT_INVALIDPARAM -1")]
+    public const int AUDIO_OUTPUT_INVALIDPARAM = -1;
+
+    [NativeTypeName("#define AUDIO_OUTPUT_FAIL -2")]
+    public const int AUDIO_OUTPUT_FAIL = -2;
 }

@@ -85,4 +85,13 @@ public static unsafe partial class ObsVideo
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void video_output_inc_texture_skipped_frames([NativeTypeName("video_t *")] video_output* video);
+
+    [NativeTypeName("#define VIDEO_OUTPUT_SUCCESS 0")]
+    public const int VIDEO_OUTPUT_SUCCESS = 0;
+
+    [NativeTypeName("#define VIDEO_OUTPUT_INVALIDPARAM -1")]
+    public const int VIDEO_OUTPUT_INVALIDPARAM = -1;
+
+    [NativeTypeName("#define VIDEO_OUTPUT_FAIL -2")]
+    public const int VIDEO_OUTPUT_FAIL = -2;
 }

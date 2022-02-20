@@ -1951,4 +1951,16 @@ public static unsafe partial class Obs
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("enum obs_icon_type")]
     public static extern obs_icon_type obs_source_get_icon_type([NativeTypeName("const char *")] sbyte* id);
+
+    [NativeTypeName("#define OBS_SOURCE_FRAME_LINEAR_ALPHA (1 << 0)")]
+    public const int OBS_SOURCE_FRAME_LINEAR_ALPHA = (1 << 0);
+
+    [NativeTypeName("#define OBS_SOURCE_FLAG_UNUSED_1 (1 << 0)")]
+    public const int OBS_SOURCE_FLAG_UNUSED_1 = (1 << 0);
+
+    [NativeTypeName("#define OBS_SOURCE_FLAG_FORCE_MONO (1 << 1)")]
+    public const int OBS_SOURCE_FLAG_FORCE_MONO = (1 << 1);
+
+    [NativeTypeName("#define OBS_OUTPUT_DELAY_PRESERVE (1 << 0)")]
+    public const int OBS_OUTPUT_DELAY_PRESERVE = (1 << 0);
 }
