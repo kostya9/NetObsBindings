@@ -6,7 +6,7 @@ ClangSharpPInvokeGenerator `
     --methodClassName ObsSource <# class name where to put methods #> `
     --libraryPath obs <# name of the DLL #> `
     -o .\NetObsBindings\ObsInterop <# output folder #> `
-    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void* gs_texture*=@void* input_subsystem*=@void*
+    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void*  input_subsystem*=@void*
 
 ClangSharpPInvokeGenerator `
     -c multi-file generate-file-scoped-namespaces generate-helper-types exclude-funcs-with-body generate-macro-bindings <# configuration for the generator#> `
@@ -16,7 +16,7 @@ ClangSharpPInvokeGenerator `
     --methodClassName ObsAudio <# class name where to put methods #> `
     --libraryPath obs <# name of the DLL #> `
     -o .\NetObsBindings\ObsInterop <# output folder #> `
-    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void* gs_texture*=@void* input_subsystem*=@void*
+    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void*  input_subsystem*=@void*
 
 ClangSharpPInvokeGenerator `
     -c multi-file generate-file-scoped-namespaces generate-helper-types exclude-funcs-with-body generate-macro-bindings <# configuration for the generator#> `
@@ -26,7 +26,7 @@ ClangSharpPInvokeGenerator `
     --methodClassName Obs <# class name where to put methods #> `
     --libraryPath obs <# name of the DLL #> `
     -o .\NetObsBindings\ObsInterop <# output folder #> `
-    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void* gs_texture*=@void* input_subsystem*=@void*
+    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void*  input_subsystem*=@void*
 
 ClangSharpPInvokeGenerator `
     -c multi-file generate-file-scoped-namespaces generate-helper-types exclude-funcs-with-body generate-macro-bindings <# configuration for the generator#> `
@@ -36,7 +36,7 @@ ClangSharpPInvokeGenerator `
     --methodClassName ObsVideo <# class name where to put methods #> `
     --libraryPath obs <# name of the DLL #> `
     -o .\NetObsBindings\ObsInterop <# output folder #> `
-    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void* gs_texture*=@void* input_subsystem*=@void*
+    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void*  input_subsystem*=@void*
 
 ClangSharpPInvokeGenerator `
     -c multi-file generate-file-scoped-namespaces generate-helper-types exclude-funcs-with-body generate-macro-bindings <# configuration for the generator#> `
@@ -46,7 +46,7 @@ ClangSharpPInvokeGenerator `
     --methodClassName ObsGraphics <# class name where to put methods #> `
     --libraryPath obs <# name of the DLL #> `
     -o .\NetObsBindings\ObsInterop <# output folder #> `
-    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void* gs_texture*=@void* input_subsystem*=@void*
+    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void*  input_subsystem*=@void*
 
 ClangSharpPInvokeGenerator `
     -c multi-file generate-file-scoped-namespaces generate-helper-types exclude-funcs-with-body generate-macro-bindings <# configuration for the generator#> `
@@ -56,7 +56,7 @@ ClangSharpPInvokeGenerator `
     --methodClassName ObsInteraction <# class name where to put methods #> `
     --libraryPath obs <# name of the DLL #> `
     -o .\NetObsBindings\ObsInterop <# output folder #> `
-    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void* gs_texture*=@void* input_subsystem*=@void*
+    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void*  input_subsystem*=@void*
 
 ClangSharpPInvokeGenerator `
     -c multi-file generate-file-scoped-namespaces generate-helper-types exclude-funcs-with-body generate-macro-bindings <# configuration for the generator#> `
@@ -66,7 +66,7 @@ ClangSharpPInvokeGenerator `
     --methodClassName ObsEncoder <# class name where to put methods #> `
     --libraryPath obs <# name of the DLL #> `
     -o .\NetObsBindings\ObsInterop <# output folder #> `
-    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void* gs_texture*=@void* input_subsystem*=@void*
+    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void*  input_subsystem*=@void*
 
 ClangSharpPInvokeGenerator `
     -c multi-file generate-file-scoped-namespaces generate-helper-types exclude-funcs-with-body generate-macro-bindings <# configuration for the generator#> `
@@ -76,4 +76,4 @@ ClangSharpPInvokeGenerator `
     --methodClassName ObsService <# class name where to put methods #> `
     --libraryPath obs <# name of the DLL #> `
     -o .\NetObsBindings\ObsInterop <# output folder #> `
-    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void* gs_texture*=@void* input_subsystem*=@void*
+    -r obs_data*=@void* gs_effect*=@void* obs_source*=@void* obs_properties*=@void* obs_missing_files*=@void* vec2=@System.Numerics.Vector2 vec3=@System.Numerics.Vector3 vec4=@System.Numerics.Vector4 profiler_name_store*=@void* text_lookup*=@void* signal_handler*=@void* proc_handler*=@void* obs_data_array*=@void*  input_subsystem*=@void*

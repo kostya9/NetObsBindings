@@ -272,7 +272,7 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_texture_t *")]
-    public static extern void* obs_get_main_texture();
+    public static extern gs_texture* obs_get_main_texture();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_set_master_volume(float volume);
@@ -836,7 +836,7 @@ public static unsafe partial class Obs
     public static extern void obs_source_draw_set_color_matrix([NativeTypeName("const struct matrix4 *")] matrix4* color_matrix, [NativeTypeName("const struct vec3 *")] System.Numerics.Vector3* color_range_min, [NativeTypeName("const struct vec3 *")] System.Numerics.Vector3* color_range_max);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_source_draw([NativeTypeName("gs_texture_t *")] void* image, int x, int y, [NativeTypeName("uint32_t")] uint cx, [NativeTypeName("uint32_t")] uint cy, [NativeTypeName("bool")] byte flip);
+    public static extern void obs_source_draw([NativeTypeName("gs_texture_t *")] gs_texture* image, int x, int y, [NativeTypeName("uint32_t")] uint cx, [NativeTypeName("uint32_t")] uint cy, [NativeTypeName("bool")] byte flip);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_source_output_video([NativeTypeName("obs_source_t *")] void* source, [NativeTypeName("const struct obs_source_frame *")] obs_source_frame* frame);
@@ -1054,7 +1054,7 @@ public static unsafe partial class Obs
     public static extern void obs_transition_force_stop([NativeTypeName("obs_source_t *")] void* transition);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_transition_video_render([NativeTypeName("obs_source_t *")] void* transition, [NativeTypeName("obs_transition_video_render_callback_t")] delegate* unmanaged[Cdecl]<void*, void*, void*, float, uint, uint, void> callback);
+    public static extern void obs_transition_video_render([NativeTypeName("obs_source_t *")] void* transition, [NativeTypeName("obs_transition_video_render_callback_t")] delegate* unmanaged[Cdecl]<void*, gs_texture*, gs_texture*, float, uint, uint, void> callback);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
