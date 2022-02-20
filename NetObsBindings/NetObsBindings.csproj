@@ -8,8 +8,9 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageVersion>0.0.1-alpha6</PackageVersion>
+    <PackageVersion>0.0.1-alpha7</PackageVersion>
 
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <ProjectUrl>https://github.com/kostya9/NetObsBindings</ProjectUrl>
     <PackageDescription>OBS bindings for .NET</PackageDescription>
     <Authors>Kostiantyn Sharovarskyi</Authors>
@@ -22,6 +23,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
   </ItemGroup>
 
