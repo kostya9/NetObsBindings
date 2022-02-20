@@ -417,6 +417,35 @@ public static unsafe partial class Obs
     public static extern void obs_set_ui_task_handler([NativeTypeName("obs_task_handler_t")] delegate* unmanaged[Cdecl]<delegate* unmanaged[Cdecl]<void*, void>, void*, byte, void> handler);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_object_t *")]
+    public static extern obs_context_data* obs_object_get_ref([NativeTypeName("obs_object_t *")] obs_context_data* @object);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_object_release([NativeTypeName("obs_object_t *")] obs_context_data* @object);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_weak_object_addref([NativeTypeName("obs_weak_object_t *")] obs_weak_object* weak);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_weak_object_release([NativeTypeName("obs_weak_object_t *")] obs_weak_object* weak);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_weak_object_t *")]
+    public static extern obs_weak_object* obs_object_get_weak_object([NativeTypeName("obs_object_t *")] obs_context_data* @object);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_object_t *")]
+    public static extern obs_context_data* obs_weak_object_get_object([NativeTypeName("obs_weak_object_t *")] obs_weak_object* weak);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_weak_object_expired([NativeTypeName("obs_weak_object_t *")] obs_weak_object* weak);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_weak_object_references_object([NativeTypeName("obs_weak_object_t *")] obs_weak_object* weak, [NativeTypeName("obs_object_t *")] obs_context_data* @object);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_view_t *")]
     public static extern obs_view* obs_view_create();
 
@@ -1058,6 +1087,10 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_scene_release([NativeTypeName("obs_scene_t *")] obs_scene* scene);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_scene_t *")]
+    public static extern obs_scene* obs_scene_get_ref([NativeTypeName("obs_scene_t *")] obs_scene* scene);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_source_t *")]

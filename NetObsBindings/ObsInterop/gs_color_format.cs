@@ -24,4 +24,5 @@ public enum gs_color_format
     GS_RGBA_UNORM,
     GS_BGRX_UNORM,
     GS_BGRA_UNORM,
+    GS_RG16,
 }
