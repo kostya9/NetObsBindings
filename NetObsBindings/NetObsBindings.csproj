@@ -5,11 +5,25 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PackageVersion>0.0.1-alpha3</PackageVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageVersion>0.0.1-alpha4</PackageVersion>
+
     <ProjectUrl>https://github.com/kostya9/NetObsBindings</ProjectUrl>
     <PackageDescription>OBS bindings for .NET</PackageDescription>
     <Authors>Kostiantyn Sharovarskyi</Authors>
+    <PackageId>NetObsBindings</PackageId>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryUrl>https://github.com/kostya9/NetObsBindings.git</RepositoryUrl> 
+    <RepositoryType>git</RepositoryType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
+  </ItemGroup>
 
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
