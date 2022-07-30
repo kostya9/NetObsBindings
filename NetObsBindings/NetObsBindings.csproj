@@ -5,10 +5,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageVersion>0.0.1-alpha7</PackageVersion>
+    <PackageVersion>0.0.1-alpha8</PackageVersion>
 
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <ProjectUrl>https://github.com/kostya9/NetObsBindings</ProjectUrl>
