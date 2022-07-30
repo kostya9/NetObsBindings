@@ -1,38 +1,38 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
 
-    <IsTrimmable>true</IsTrimmable>
-    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
-  </PropertyGroup>
+        <IsTrimmable>true</IsTrimmable>
+        <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <PackageVersion>0.0.1-alpha9</PackageVersion>
+    <PropertyGroup>
+        <PackageVersion>0.0.1-alpha12</PackageVersion>
 
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <ProjectUrl>https://github.com/kostya9/NetObsBindings</ProjectUrl>
-    <PackageDescription>OBS bindings for .NET</PackageDescription>
-    <Authors>Kostiantyn Sharovarskyi</Authors>
-    <PackageId>NetObsBindings</PackageId>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <RepositoryUrl>https://github.com/kostya9/NetObsBindings.git</RepositoryUrl> 
-    <RepositoryType>git</RepositoryType>
-    <DebugType>embedded</DebugType>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-  </PropertyGroup>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <ProjectUrl>https://github.com/kostya9/NetObsBindings</ProjectUrl>
+        <PackageDescription>OBS bindings for .NET</PackageDescription>
+        <Authors>Kostiantyn Sharovarskyi</Authors>
+        <PackageId>NetObsBindings</PackageId>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <RepositoryUrl>https://github.com/kostya9/NetObsBindings.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <DebugType>embedded</DebugType>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="..\LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    <ItemGroup>
+        <None Include="..\LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)"/>
 
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
-  </ItemGroup>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
+    </ItemGroup>
 
-  <PropertyGroup>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
+    <PropertyGroup>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
 
 </Project>
