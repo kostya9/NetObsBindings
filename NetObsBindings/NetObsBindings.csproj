@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageVersion>0.0.1-alpha8</PackageVersion>
+    <PackageVersion>0.0.1-alpha9</PackageVersion>
 
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <ProjectUrl>https://github.com/kostya9/NetObsBindings</ProjectUrl>

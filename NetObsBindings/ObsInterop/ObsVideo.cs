@@ -10,7 +10,11 @@ public static unsafe partial class ObsVideo
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
-    public static extern byte video_format_get_parameters([NativeTypeName("enum video_colorspace")] video_colorspace color_space, [NativeTypeName("enum video_range_type")] video_range_type range, [NativeTypeName("float [16]")] float* matrix, [NativeTypeName("float [3]")] float* min_range, [NativeTypeName("float [3]")] float* max_range);
+    public static extern byte video_format_get_parameters([NativeTypeName("enum video_colorspace")] video_colorspace color_space, [NativeTypeName("enum video_range_type")] video_range_type range, [NativeTypeName("float[16]")] float* matrix, [NativeTypeName("float[3]")] float* min_range, [NativeTypeName("float[3]")] float* max_range);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte video_format_get_parameters_for_format([NativeTypeName("enum video_colorspace")] video_colorspace color_space, [NativeTypeName("enum video_range_type")] video_range_type range, [NativeTypeName("enum video_format")] video_format format, [NativeTypeName("float[16]")] float* matrix, [NativeTypeName("float[3]")] float* min_range, [NativeTypeName("float[3]")] float* max_range);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int video_output_open([NativeTypeName("video_t **")] video_output** video, [NativeTypeName("struct video_output_info *")] video_output_info* info);

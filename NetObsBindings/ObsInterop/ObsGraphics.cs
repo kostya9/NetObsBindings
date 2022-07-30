@@ -209,6 +209,10 @@ public static unsafe partial class ObsGraphics
     public static extern byte gs_texrender_begin([NativeTypeName("gs_texrender_t *")] gs_texture_render* texrender, [NativeTypeName("uint32_t")] uint cx, [NativeTypeName("uint32_t")] uint cy);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte gs_texrender_begin_with_color_space([NativeTypeName("gs_texrender_t *")] gs_texture_render* texrender, [NativeTypeName("uint32_t")] uint cx, [NativeTypeName("uint32_t")] uint cy, [NativeTypeName("enum gs_color_space")] gs_color_space space);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_texrender_end([NativeTypeName("gs_texrender_t *")] gs_texture_render* texrender);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -217,6 +221,10 @@ public static unsafe partial class ObsGraphics
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_texture_t *")]
     public static extern gs_texture* gs_texrender_get_texture([NativeTypeName("const gs_texrender_t *")] gs_texture_render* texrender);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("enum gs_color_format")]
+    public static extern gs_color_format gs_texrender_get_format([NativeTypeName("const gs_texrender_t *")] gs_texture_render* texrender);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const char *")]
@@ -366,6 +374,10 @@ public static unsafe partial class ObsGraphics
     public static extern byte* gs_create_texture_file_data2([NativeTypeName("const char *")] sbyte* file, [NativeTypeName("enum gs_image_alpha_mode")] gs_image_alpha_mode alpha_mode, [NativeTypeName("enum gs_color_format *")] gs_color_format* format, [NativeTypeName("uint32_t *")] uint* cx, [NativeTypeName("uint32_t *")] uint* cy);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("uint8_t *")]
+    public static extern byte* gs_create_texture_file_data3([NativeTypeName("const char *")] sbyte* file, [NativeTypeName("enum gs_image_alpha_mode")] gs_image_alpha_mode alpha_mode, [NativeTypeName("enum gs_color_format *")] gs_color_format* format, [NativeTypeName("uint32_t *")] uint* cx, [NativeTypeName("uint32_t *")] uint* cy, [NativeTypeName("enum gs_color_space *")] gs_color_space* space);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_draw_sprite([NativeTypeName("gs_texture_t *")] gs_texture* tex, [NativeTypeName("uint32_t")] uint flip, [NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -413,6 +425,9 @@ public static unsafe partial class ObsGraphics
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_resize([NativeTypeName("uint32_t")] uint x, [NativeTypeName("uint32_t")] uint y);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void gs_update_color_space();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_get_size([NativeTypeName("uint32_t *")] uint* x, [NativeTypeName("uint32_t *")] uint* y);
@@ -507,6 +522,10 @@ public static unsafe partial class ObsGraphics
     public static extern gs_shader* gs_get_pixel_shader();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("enum gs_color_space")]
+    public static extern gs_color_space gs_get_color_space();
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_texture_t *")]
     public static extern gs_texture* gs_get_render_target();
 
@@ -516,6 +535,9 @@ public static unsafe partial class ObsGraphics
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_set_render_target([NativeTypeName("gs_texture_t *")] gs_texture* tex, [NativeTypeName("gs_zstencil_t *")] gs_zstencil_buffer* zstencil);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void gs_set_render_target_with_color_space([NativeTypeName("gs_texture_t *")] gs_texture* tex, [NativeTypeName("gs_zstencil_t *")] gs_zstencil_buffer* zstencil, [NativeTypeName("enum gs_color_space")] gs_color_space space);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_set_cube_render_target([NativeTypeName("gs_texture_t *")] gs_texture* cubetex, int side, [NativeTypeName("gs_zstencil_t *")] gs_zstencil_buffer* zstencil);
@@ -783,10 +805,18 @@ public static unsafe partial class ObsGraphics
     public static extern byte gs_nv12_available();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void gs_debug_marker_begin([NativeTypeName("const float [4]")] float* color, [NativeTypeName("const char *")] sbyte* markername);
+    [return: NativeTypeName("bool")]
+    public static extern byte gs_p010_available();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void gs_debug_marker_begin_format([NativeTypeName("const float [4]")] float* color, [NativeTypeName("const char *")] sbyte* format);
+    [return: NativeTypeName("bool")]
+    public static extern byte gs_is_monitor_hdr(void* monitor);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void gs_debug_marker_begin([NativeTypeName("const float[4]")] float* color, [NativeTypeName("const char *")] sbyte* markername);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void gs_debug_marker_begin_format([NativeTypeName("const float[4]")] float* color, [NativeTypeName("const char *")] sbyte* format, __arglist);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_debug_marker_end();
@@ -862,8 +892,16 @@ public static unsafe partial class ObsGraphics
     public static extern byte gs_texture_create_nv12([NativeTypeName("gs_texture_t **")] gs_texture** tex_y, [NativeTypeName("gs_texture_t **")] gs_texture** tex_uv, [NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height, [NativeTypeName("uint32_t")] uint flags);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte gs_texture_create_p010([NativeTypeName("gs_texture_t **")] gs_texture** tex_y, [NativeTypeName("gs_texture_t **")] gs_texture** tex_uv, [NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height, [NativeTypeName("uint32_t")] uint flags);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_stagesurf_t *")]
     public static extern gs_stage_surface* gs_stagesurface_create_nv12([NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("gs_stagesurf_t *")]
+    public static extern gs_stage_surface* gs_stagesurface_create_p010([NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_register_loss_callbacks([NativeTypeName("const struct gs_device_loss *")] gs_device_loss* callbacks);

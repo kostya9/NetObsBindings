@@ -29,7 +29,8 @@ public unsafe partial struct obs_video_info
     [NativeTypeName("uint32_t")]
     public uint adapter;
 
-    public bool gpu_conversion;
+    [NativeTypeName("bool")]
+    public byte gpu_conversion;
 
     [NativeTypeName("enum video_colorspace")]
     public video_colorspace colorspace;

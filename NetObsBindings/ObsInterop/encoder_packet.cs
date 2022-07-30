@@ -23,7 +23,8 @@ public unsafe partial struct encoder_packet
     [NativeTypeName("enum obs_encoder_type")]
     public obs_encoder_type type;
 
-    public bool keyframe;
+    [NativeTypeName("bool")]
+    public byte keyframe;
 
     [NativeTypeName("int64_t")]
     public long dts_usec;

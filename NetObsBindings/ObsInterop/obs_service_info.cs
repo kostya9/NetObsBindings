@@ -66,4 +66,7 @@ public unsafe partial struct obs_service_info
 
     [NativeTypeName("void (*)(void *, int *, int *)")]
     public delegate* unmanaged[Cdecl]<void*, int*, int*, void> get_max_bitrate;
+
+    [NativeTypeName("const char **(*)(void *)")]
+    public delegate* unmanaged[Cdecl]<void*, sbyte**> get_supported_video_codecs;
 }

@@ -5,7 +5,7 @@ public unsafe partial struct obs_source_frame2
     [NativeTypeName("uint8_t *[8]")]
     public _data_e__FixedBuffer data;
 
-    [NativeTypeName("uint32_t [8]")]
+    [NativeTypeName("uint32_t[8]")]
     public fixed uint linesize[8];
 
     [NativeTypeName("uint32_t")]
@@ -23,19 +23,23 @@ public unsafe partial struct obs_source_frame2
     [NativeTypeName("enum video_range_type")]
     public video_range_type range;
 
-    [NativeTypeName("float [16]")]
+    [NativeTypeName("float[16]")]
     public fixed float color_matrix[16];
 
-    [NativeTypeName("float [3]")]
+    [NativeTypeName("float[3]")]
     public fixed float color_range_min[3];
 
-    [NativeTypeName("float [3]")]
+    [NativeTypeName("float[3]")]
     public fixed float color_range_max[3];
 
-    public bool flip;
+    [NativeTypeName("bool")]
+    public byte flip;
 
     [NativeTypeName("uint8_t")]
     public byte flags;
+
+    [NativeTypeName("uint8_t")]
+    public byte trc;
 
     public unsafe partial struct _data_e__FixedBuffer
     {

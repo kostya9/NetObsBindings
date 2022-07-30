@@ -5,7 +5,7 @@ namespace ObsInterop;
 
 public partial struct obs_source_audio_mix
 {
-    [NativeTypeName("struct audio_output_data [6]")]
+    [NativeTypeName("struct audio_output_data[6]")]
     public _output_e__FixedBuffer output;
 
     public partial struct _output_e__FixedBuffer

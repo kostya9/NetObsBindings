@@ -5,7 +5,7 @@ public unsafe partial struct encoder_frame
     [NativeTypeName("uint8_t *[8]")]
     public _data_e__FixedBuffer data;
 
-    [NativeTypeName("uint32_t [8]")]
+    [NativeTypeName("uint32_t[8]")]
     public fixed uint linesize[8];
 
     [NativeTypeName("uint32_t")]
