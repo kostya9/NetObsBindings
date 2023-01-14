@@ -10,5 +10,11 @@ Write-Host "----------------------"
 ./generate_bindings.ps1
 
 Write-Host "--------"
-Write-Host "Success!"
+Write-Host "Setting OBS version..."
+Write-Host "--------"
+
+./replace_version.ps1
+
+Write-Host "--------"
+Write-Host "Finished!"
 Write-Host "--------"

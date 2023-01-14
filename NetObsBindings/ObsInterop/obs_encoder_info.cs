@@ -30,7 +30,7 @@ public unsafe partial struct obs_encoder_info
     public delegate* unmanaged[Cdecl]<void*, void> get_defaults;
 
     [NativeTypeName("obs_properties_t *(*)(void *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*> get_properties;
+    public delegate* unmanaged[Cdecl]<void*, obs_properties*> get_properties;
 
     [NativeTypeName("bool (*)(void *, obs_data_t *)")]
     public delegate* unmanaged[Cdecl]<void*, void*, byte> update;
@@ -59,7 +59,7 @@ public unsafe partial struct obs_encoder_info
     public delegate* unmanaged[Cdecl]<void*, void*, void> get_defaults2;
 
     [NativeTypeName("obs_properties_t *(*)(void *, void *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void*> get_properties2;
+    public delegate* unmanaged[Cdecl]<void*, void*, obs_properties*> get_properties2;
 
     [NativeTypeName("bool (*)(void *, uint32_t, int64_t, uint64_t, uint64_t *, struct encoder_packet *, bool *)")]
     public delegate* unmanaged[Cdecl]<void*, uint, long, ulong, ulong*, encoder_packet*, bool*, byte> encode_texture;

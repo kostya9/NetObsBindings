@@ -8,10 +8,12 @@
 
         <IsTrimmable>true</IsTrimmable>
         <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+
+        <RootNamespace></RootNamespace>
     </PropertyGroup>
 
     <PropertyGroup>
-        <PackageVersion>0.0.1.14-alpha</PackageVersion>
+        <PackageVersion>0.0.1.15-alpha</PackageVersion>
 
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <ProjectUrl>https://github.com/kostya9/NetObsBindings</ProjectUrl>

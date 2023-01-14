@@ -30,7 +30,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, void> get_defaults;
 
     [NativeTypeName("obs_properties_t *(*)(void *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*> get_properties;
+    public delegate* unmanaged[Cdecl]<void*, obs_properties*> get_properties;
 
     [NativeTypeName("void (*)(void *, obs_data_t *)")]
     public delegate* unmanaged[Cdecl]<void*, void*, void> update;
@@ -107,7 +107,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, void*, void> get_defaults2;
 
     [NativeTypeName("obs_properties_t *(*)(void *, void *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void*> get_properties2;
+    public delegate* unmanaged[Cdecl]<void*, void*, obs_properties*> get_properties2;
 
     [NativeTypeName("bool (*)(void *, uint64_t *, struct audio_output_data *, size_t, size_t)")]
     public delegate* unmanaged[Cdecl]<void*, ulong*, audio_output_data*, nuint, nuint, byte> audio_mix;

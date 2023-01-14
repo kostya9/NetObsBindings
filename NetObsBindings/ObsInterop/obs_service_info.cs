@@ -27,7 +27,7 @@ public unsafe partial struct obs_service_info
     public delegate* unmanaged[Cdecl]<void*, void> get_defaults;
 
     [NativeTypeName("obs_properties_t *(*)(void *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*> get_properties;
+    public delegate* unmanaged[Cdecl]<void*, obs_properties*> get_properties;
 
     [NativeTypeName("bool (*)(void *, obs_output_t *)")]
     public delegate* unmanaged[Cdecl]<void*, obs_output*, byte> initialize;

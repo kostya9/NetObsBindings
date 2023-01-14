@@ -585,6 +585,10 @@ public static unsafe partial class ObsGraphics
     public static extern void gs_clear([NativeTypeName("uint32_t")] uint clear_flags, [NativeTypeName("const struct vec4 *")] System.Numerics.Vector4* color, float depth, [NativeTypeName("uint8_t")] byte stencil);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte gs_is_present_ready();
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_present();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
