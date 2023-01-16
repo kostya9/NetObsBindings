@@ -9,22 +9,22 @@ public unsafe partial struct obs_service_info
     public delegate* unmanaged[Cdecl]<void*, sbyte*> get_name;
 
     [NativeTypeName("void *(*)(obs_data_t *, obs_service_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, obs_service*, void*> create;
+    public delegate* unmanaged[Cdecl]<obs_data*, obs_service*, void*> create;
 
     [NativeTypeName("void (*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, void> destroy;
 
     [NativeTypeName("void (*)(void *, obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> activate;
+    public delegate* unmanaged[Cdecl]<void*, obs_data*, void> activate;
 
     [NativeTypeName("void (*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, void> deactivate;
 
     [NativeTypeName("void (*)(void *, obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> update;
+    public delegate* unmanaged[Cdecl]<void*, obs_data*, void> update;
 
     [NativeTypeName("void (*)(obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void> get_defaults;
+    public delegate* unmanaged[Cdecl]<obs_data*, void> get_defaults;
 
     [NativeTypeName("obs_properties_t *(*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, obs_properties*> get_properties;
@@ -48,7 +48,7 @@ public unsafe partial struct obs_service_info
     public delegate* unmanaged[Cdecl]<byte> deprecated_1;
 
     [NativeTypeName("void (*)(void *, obs_data_t *, obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void*, void> apply_encoder_settings;
+    public delegate* unmanaged[Cdecl]<void*, obs_data*, obs_data*, void> apply_encoder_settings;
 
     public void* type_data;
 

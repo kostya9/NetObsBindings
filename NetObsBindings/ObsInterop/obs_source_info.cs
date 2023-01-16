@@ -15,7 +15,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, sbyte*> get_name;
 
     [NativeTypeName("void *(*)(obs_data_t *, obs_source_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void*> create;
+    public delegate* unmanaged[Cdecl]<obs_data*, void*, void*> create;
 
     [NativeTypeName("void (*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, void> destroy;
@@ -27,13 +27,13 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, uint> get_height;
 
     [NativeTypeName("void (*)(obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void> get_defaults;
+    public delegate* unmanaged[Cdecl]<obs_data*, void> get_defaults;
 
     [NativeTypeName("obs_properties_t *(*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, obs_properties*> get_properties;
 
     [NativeTypeName("void (*)(void *, obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> update;
+    public delegate* unmanaged[Cdecl]<void*, obs_data*, void> update;
 
     [NativeTypeName("void (*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, void> activate;
@@ -63,10 +63,10 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, delegate* unmanaged[Cdecl]<void*, void*, void*, void>, void*, void> enum_active_sources;
 
     [NativeTypeName("void (*)(void *, obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> save;
+    public delegate* unmanaged[Cdecl]<void*, obs_data*, void> save;
 
     [NativeTypeName("void (*)(void *, obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> load;
+    public delegate* unmanaged[Cdecl]<void*, obs_data*, void> load;
 
     [NativeTypeName("void (*)(void *, const struct obs_mouse_event *, int32_t, bool, uint32_t)")]
     public delegate* unmanaged[Cdecl]<void*, obs_mouse_event*, int, byte, uint, void> mouse_click;
@@ -104,7 +104,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, void> transition_stop;
 
     [NativeTypeName("void (*)(void *, obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> get_defaults2;
+    public delegate* unmanaged[Cdecl]<void*, obs_data*, void> get_defaults2;
 
     [NativeTypeName("obs_properties_t *(*)(void *, void *)")]
     public delegate* unmanaged[Cdecl]<void*, void*, obs_properties*> get_properties2;
