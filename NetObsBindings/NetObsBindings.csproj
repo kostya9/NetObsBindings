@@ -17,14 +17,22 @@
 
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <ProjectUrl>https://github.com/kostya9/NetObsBindings</ProjectUrl>
-        <PackageDescription>OBS bindings for .NET</PackageDescription>
-        <Authors>Kostiantyn Sharovarskyi</Authors>
         <PackageId>NetObsBindings</PackageId>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <RepositoryUrl>https://github.com/kostya9/NetObsBindings.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <DebugType>embedded</DebugType>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    </PropertyGroup>
+
+      <PropertyGroup>
+        <PackageDescription>NetObsBindings contain OBS bindings for .NET apps</PackageDescription>
+        <Description>NetObsBindings contain OBS bindings for .NET apps</Description>
+        <Copyright>Kostiantyn Sharovarskyi</Copyright>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <Authors>Kostiantyn Sharovarskyi</Authors>
+        <PackageTags>obs;bindings</PackageTags>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
