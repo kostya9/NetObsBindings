@@ -45,7 +45,7 @@ public static unsafe partial class ObsProperties
     public static extern void obs_properties_remove_by_name([NativeTypeName("obs_properties_t *")] obs_properties* props, [NativeTypeName("const char *")] sbyte* property);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_properties_apply_settings([NativeTypeName("obs_properties_t *")] obs_properties* props, [NativeTypeName("obs_data_t *")] void* settings);
+    public static extern void obs_properties_apply_settings([NativeTypeName("obs_properties_t *")] obs_properties* props, [NativeTypeName("obs_data_t *")] obs_data* settings);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_property_t *")]
@@ -112,14 +112,14 @@ public static unsafe partial class ObsProperties
     public static extern obs_property* obs_properties_add_group([NativeTypeName("obs_properties_t *")] obs_properties* props, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const char *")] sbyte* description, [NativeTypeName("enum obs_group_type")] obs_group_type type, [NativeTypeName("obs_properties_t *")] obs_properties* group);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_property_set_modified_callback([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("obs_property_modified_t")] delegate* unmanaged[Cdecl]<obs_properties*, obs_property*, void*, byte> modified);
+    public static extern void obs_property_set_modified_callback([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("obs_property_modified_t")] delegate* unmanaged[Cdecl]<obs_properties*, obs_property*, obs_data*, byte> modified);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_property_set_modified_callback2([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("obs_property_modified2_t")] delegate* unmanaged[Cdecl]<void*, obs_properties*, obs_property*, void*, byte> modified, void* priv);
+    public static extern void obs_property_set_modified_callback2([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("obs_property_modified2_t")] delegate* unmanaged[Cdecl]<void*, obs_properties*, obs_property*, obs_data*, byte> modified, void* priv);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
-    public static extern byte obs_property_modified([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("obs_data_t *")] void* settings);
+    public static extern byte obs_property_modified([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("obs_data_t *")] obs_data* settings);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]

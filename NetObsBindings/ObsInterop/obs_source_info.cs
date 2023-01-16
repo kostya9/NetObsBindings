@@ -15,7 +15,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, sbyte*> get_name;
 
     [NativeTypeName("void *(*)(obs_data_t *, obs_source_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void*> create;
+    public delegate* unmanaged[Cdecl]<obs_data*, obs_source*, void*> create;
 
     [NativeTypeName("void (*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, void> destroy;
@@ -27,13 +27,13 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, uint> get_height;
 
     [NativeTypeName("void (*)(obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void> get_defaults;
+    public delegate* unmanaged[Cdecl]<obs_data*, void> get_defaults;
 
     [NativeTypeName("obs_properties_t *(*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, obs_properties*> get_properties;
 
     [NativeTypeName("void (*)(void *, obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> update;
+    public delegate* unmanaged[Cdecl]<void*, obs_data*, void> update;
 
     [NativeTypeName("void (*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, void> activate;
@@ -51,7 +51,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, float, void> video_tick;
 
     [NativeTypeName("void (*)(void *, gs_effect_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> video_render;
+    public delegate* unmanaged[Cdecl]<void*, gs_effect*, void> video_render;
 
     [NativeTypeName("struct obs_source_frame *(*)(void *, struct obs_source_frame *)")]
     public delegate* unmanaged[Cdecl]<void*, obs_source_frame*, obs_source_frame*> filter_video;
@@ -60,13 +60,13 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, obs_audio_data*, obs_audio_data*> filter_audio;
 
     [NativeTypeName("void (*)(void *, obs_source_enum_proc_t, void *)")]
-    public delegate* unmanaged[Cdecl]<void*, delegate* unmanaged[Cdecl]<void*, void*, void*, void>, void*, void> enum_active_sources;
+    public delegate* unmanaged[Cdecl]<void*, delegate* unmanaged[Cdecl]<obs_source*, obs_source*, void*, void>, void*, void> enum_active_sources;
 
     [NativeTypeName("void (*)(void *, obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> save;
+    public delegate* unmanaged[Cdecl]<void*, obs_data*, void> save;
 
     [NativeTypeName("void (*)(void *, obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> load;
+    public delegate* unmanaged[Cdecl]<void*, obs_data*, void> load;
 
     [NativeTypeName("void (*)(void *, const struct obs_mouse_event *, int32_t, bool, uint32_t)")]
     public delegate* unmanaged[Cdecl]<void*, obs_mouse_event*, int, byte, uint, void> mouse_click;
@@ -84,7 +84,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, obs_key_event*, byte, void> key_click;
 
     [NativeTypeName("void (*)(void *, obs_source_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> filter_remove;
+    public delegate* unmanaged[Cdecl]<void*, obs_source*, void> filter_remove;
 
     public void* type_data;
 
@@ -95,7 +95,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, ulong*, obs_source_audio_mix*, uint, nuint, nuint, byte> audio_render;
 
     [NativeTypeName("void (*)(void *, obs_source_enum_proc_t, void *)")]
-    public delegate* unmanaged[Cdecl]<void*, delegate* unmanaged[Cdecl]<void*, void*, void*, void>, void*, void> enum_all_sources;
+    public delegate* unmanaged[Cdecl]<void*, delegate* unmanaged[Cdecl]<obs_source*, obs_source*, void*, void>, void*, void> enum_all_sources;
 
     [NativeTypeName("void (*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, void> transition_start;
@@ -104,7 +104,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, void> transition_stop;
 
     [NativeTypeName("void (*)(void *, obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> get_defaults2;
+    public delegate* unmanaged[Cdecl]<void*, obs_data*, void> get_defaults2;
 
     [NativeTypeName("obs_properties_t *(*)(void *, void *)")]
     public delegate* unmanaged[Cdecl]<void*, void*, obs_properties*> get_properties2;

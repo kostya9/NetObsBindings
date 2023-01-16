@@ -15,7 +15,7 @@ public unsafe partial struct obs_encoder_info
     public delegate* unmanaged[Cdecl]<void*, sbyte*> get_name;
 
     [NativeTypeName("void *(*)(obs_data_t *, obs_encoder_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, obs_encoder*, void*> create;
+    public delegate* unmanaged[Cdecl]<obs_data*, obs_encoder*, void*> create;
 
     [NativeTypeName("void (*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, void> destroy;
@@ -27,13 +27,13 @@ public unsafe partial struct obs_encoder_info
     public delegate* unmanaged[Cdecl]<void*, nuint> get_frame_size;
 
     [NativeTypeName("void (*)(obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void> get_defaults;
+    public delegate* unmanaged[Cdecl]<obs_data*, void> get_defaults;
 
     [NativeTypeName("obs_properties_t *(*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, obs_properties*> get_properties;
 
     [NativeTypeName("bool (*)(void *, obs_data_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, byte> update;
+    public delegate* unmanaged[Cdecl]<void*, obs_data*, byte> update;
 
     [NativeTypeName("bool (*)(void *, uint8_t **, size_t *)")]
     public delegate* unmanaged[Cdecl]<void*, byte**, nuint*, byte> get_extra_data;
@@ -56,7 +56,7 @@ public unsafe partial struct obs_encoder_info
     public uint caps;
 
     [NativeTypeName("void (*)(obs_data_t *, void *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> get_defaults2;
+    public delegate* unmanaged[Cdecl]<obs_data*, void*, void> get_defaults2;
 
     [NativeTypeName("obs_properties_t *(*)(void *, void *)")]
     public delegate* unmanaged[Cdecl]<void*, void*, obs_properties*> get_properties2;
