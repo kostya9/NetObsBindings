@@ -9,7 +9,6 @@ jobs:
         defaults:
             run:
                 shell: bash
-                working-directory: site
         env:
             DEPLOY_SECRET: ${{ secrets.NUGET_TOKEN }}
         steps:
