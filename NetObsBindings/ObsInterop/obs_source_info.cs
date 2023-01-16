@@ -15,7 +15,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, sbyte*> get_name;
 
     [NativeTypeName("void *(*)(obs_data_t *, obs_source_t *)")]
-    public delegate* unmanaged[Cdecl]<obs_data*, void*, void*> create;
+    public delegate* unmanaged[Cdecl]<obs_data*, obs_source*, void*> create;
 
     [NativeTypeName("void (*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, void> destroy;
@@ -60,7 +60,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, obs_audio_data*, obs_audio_data*> filter_audio;
 
     [NativeTypeName("void (*)(void *, obs_source_enum_proc_t, void *)")]
-    public delegate* unmanaged[Cdecl]<void*, delegate* unmanaged[Cdecl]<void*, void*, void*, void>, void*, void> enum_active_sources;
+    public delegate* unmanaged[Cdecl]<void*, delegate* unmanaged[Cdecl]<obs_source*, obs_source*, void*, void>, void*, void> enum_active_sources;
 
     [NativeTypeName("void (*)(void *, obs_data_t *)")]
     public delegate* unmanaged[Cdecl]<void*, obs_data*, void> save;
@@ -84,7 +84,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, obs_key_event*, byte, void> key_click;
 
     [NativeTypeName("void (*)(void *, obs_source_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> filter_remove;
+    public delegate* unmanaged[Cdecl]<void*, obs_source*, void> filter_remove;
 
     public void* type_data;
 
@@ -95,7 +95,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, ulong*, obs_source_audio_mix*, uint, nuint, nuint, byte> audio_render;
 
     [NativeTypeName("void (*)(void *, obs_source_enum_proc_t, void *)")]
-    public delegate* unmanaged[Cdecl]<void*, delegate* unmanaged[Cdecl]<void*, void*, void*, void>, void*, void> enum_all_sources;
+    public delegate* unmanaged[Cdecl]<void*, delegate* unmanaged[Cdecl]<obs_source*, obs_source*, void*, void>, void*, void> enum_all_sources;
 
     [NativeTypeName("void (*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, void> transition_start;
