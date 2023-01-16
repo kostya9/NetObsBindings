@@ -270,12 +270,12 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_effect_t *")]
-    public static extern void* obs_get_base_effect([NativeTypeName("enum obs_base_effect")] obs_base_effect effect);
+    public static extern gs_effect* obs_get_base_effect([NativeTypeName("enum obs_base_effect")] obs_base_effect effect);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_effect_t *")]
     [Obsolete]
-    public static extern void* obs_get_default_rect_effect();
+    public static extern gs_effect* obs_get_default_rect_effect();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("signal_handler_t *")]
@@ -941,10 +941,10 @@ public static unsafe partial class Obs
     public static extern byte obs_source_process_filter_begin_with_color_space([NativeTypeName("obs_source_t *")] void* filter, [NativeTypeName("enum gs_color_format")] gs_color_format format, [NativeTypeName("enum gs_color_space")] gs_color_space space, [NativeTypeName("enum obs_allow_direct_render")] obs_allow_direct_render allow_direct);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_source_process_filter_end([NativeTypeName("obs_source_t *")] void* filter, [NativeTypeName("gs_effect_t *")] void* effect, [NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height);
+    public static extern void obs_source_process_filter_end([NativeTypeName("obs_source_t *")] void* filter, [NativeTypeName("gs_effect_t *")] gs_effect* effect, [NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_source_process_filter_tech_end([NativeTypeName("obs_source_t *")] void* filter, [NativeTypeName("gs_effect_t *")] void* effect, [NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height, [NativeTypeName("const char *")] sbyte* tech_name);
+    public static extern void obs_source_process_filter_tech_end([NativeTypeName("obs_source_t *")] void* filter, [NativeTypeName("gs_effect_t *")] gs_effect* effect, [NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height, [NativeTypeName("const char *")] sbyte* tech_name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_source_skip_video_filter([NativeTypeName("obs_source_t *")] void* filter);

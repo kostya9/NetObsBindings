@@ -66,15 +66,15 @@ public static unsafe partial class ObsGraphics
     public static extern void gs_shader_set_next_sampler([NativeTypeName("gs_sparam_t *")] gs_shader_param* param0, [NativeTypeName("gs_samplerstate_t *")] gs_sampler_state* sampler);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void gs_effect_destroy([NativeTypeName("gs_effect_t *")] void* effect);
+    public static extern void gs_effect_destroy([NativeTypeName("gs_effect_t *")] gs_effect* effect);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_technique_t *")]
-    public static extern gs_effect_technique* gs_effect_get_technique([NativeTypeName("const gs_effect_t *")] void* effect, [NativeTypeName("const char *")] sbyte* name);
+    public static extern gs_effect_technique* gs_effect_get_technique([NativeTypeName("const gs_effect_t *")] gs_effect* effect, [NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_technique_t *")]
-    public static extern gs_effect_technique* gs_effect_get_current_technique([NativeTypeName("const gs_effect_t *")] void* effect);
+    public static extern gs_effect_technique* gs_effect_get_current_technique([NativeTypeName("const gs_effect_t *")] gs_effect* effect);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("size_t")]
@@ -104,15 +104,15 @@ public static unsafe partial class ObsGraphics
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("size_t")]
-    public static extern nuint gs_effect_get_num_params([NativeTypeName("const gs_effect_t *")] void* effect);
+    public static extern nuint gs_effect_get_num_params([NativeTypeName("const gs_effect_t *")] gs_effect* effect);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_eparam_t *")]
-    public static extern gs_effect_param* gs_effect_get_param_by_idx([NativeTypeName("const gs_effect_t *")] void* effect, [NativeTypeName("size_t")] nuint param1);
+    public static extern gs_effect_param* gs_effect_get_param_by_idx([NativeTypeName("const gs_effect_t *")] gs_effect* effect, [NativeTypeName("size_t")] nuint param1);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_eparam_t *")]
-    public static extern gs_effect_param* gs_effect_get_param_by_name([NativeTypeName("const gs_effect_t *")] void* effect, [NativeTypeName("const char *")] sbyte* name);
+    public static extern gs_effect_param* gs_effect_get_param_by_name([NativeTypeName("const gs_effect_t *")] gs_effect* effect, [NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("size_t")]
@@ -128,18 +128,18 @@ public static unsafe partial class ObsGraphics
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
-    public static extern byte gs_effect_loop([NativeTypeName("gs_effect_t *")] void* effect, [NativeTypeName("const char *")] sbyte* name);
+    public static extern byte gs_effect_loop([NativeTypeName("gs_effect_t *")] gs_effect* effect, [NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void gs_effect_update_params([NativeTypeName("gs_effect_t *")] void* effect);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("gs_eparam_t *")]
-    public static extern gs_effect_param* gs_effect_get_viewproj_matrix([NativeTypeName("const gs_effect_t *")] void* effect);
+    public static extern void gs_effect_update_params([NativeTypeName("gs_effect_t *")] gs_effect* effect);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_eparam_t *")]
-    public static extern gs_effect_param* gs_effect_get_world_matrix([NativeTypeName("const gs_effect_t *")] void* effect);
+    public static extern gs_effect_param* gs_effect_get_viewproj_matrix([NativeTypeName("const gs_effect_t *")] gs_effect* effect);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("gs_eparam_t *")]
+    public static extern gs_effect_param* gs_effect_get_world_matrix([NativeTypeName("const gs_effect_t *")] gs_effect* effect);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_effect_get_param_info([NativeTypeName("const gs_eparam_t *")] gs_effect_param* param0, [NativeTypeName("struct gs_effect_param_info *")] gs_effect_param_info* info);
@@ -343,15 +343,15 @@ public static unsafe partial class ObsGraphics
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_effect_t *")]
-    public static extern void* gs_get_effect();
+    public static extern gs_effect* gs_get_effect();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_effect_t *")]
-    public static extern void* gs_effect_create_from_file([NativeTypeName("const char *")] sbyte* file, [NativeTypeName("char **")] sbyte** error_string);
+    public static extern gs_effect* gs_effect_create_from_file([NativeTypeName("const char *")] sbyte* file, [NativeTypeName("char **")] sbyte** error_string);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_effect_t *")]
-    public static extern void* gs_effect_create([NativeTypeName("const char *")] sbyte* effect_string, [NativeTypeName("const char *")] sbyte* filename, [NativeTypeName("char **")] sbyte** error_string);
+    public static extern gs_effect* gs_effect_create([NativeTypeName("const char *")] sbyte* effect_string, [NativeTypeName("const char *")] sbyte* filename, [NativeTypeName("char **")] sbyte** error_string);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_shader_t *")]

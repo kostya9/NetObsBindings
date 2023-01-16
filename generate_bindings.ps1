@@ -1,5 +1,5 @@
 $config = "multi-file", "generate-file-scoped-namespaces", "generate-helper-types", "exclude-funcs-with-body", "generate-macro-bindings"
-$replacements = "gs_effect*=@void*", "obs_source*=@void*", "obs_missing_files*=@void*", "vec2=@System.Numerics.Vector2", "vec3=@System.Numerics.Vector3", "vec4=@System.Numerics.Vector4", "profiler_name_store*=@void*", "text_lookup*=@void*", "signal_handler*=@void*", "proc_handler*=@void*", "input_subsystem*=@void*"
+$replacements = "obs_source*=@void*", "obs_missing_files*=@void*", "vec2=@System.Numerics.Vector2", "vec3=@System.Numerics.Vector3", "vec4=@System.Numerics.Vector4", "profiler_name_store*=@void*", "text_lookup*=@void*", "signal_handler*=@void*", "proc_handler*=@void*", "input_subsystem*=@void*"
 
 ClangSharpPInvokeGenerator `
     -c $config `

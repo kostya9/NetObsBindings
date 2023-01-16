@@ -51,7 +51,7 @@ public unsafe partial struct obs_source_info
     public delegate* unmanaged[Cdecl]<void*, float, void> video_tick;
 
     [NativeTypeName("void (*)(void *, gs_effect_t *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*, void> video_render;
+    public delegate* unmanaged[Cdecl]<void*, gs_effect*, void> video_render;
 
     [NativeTypeName("struct obs_source_frame *(*)(void *, struct obs_source_frame *)")]
     public delegate* unmanaged[Cdecl]<void*, obs_source_frame*, obs_source_frame*> filter_video;
