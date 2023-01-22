@@ -136,3 +136,13 @@ ClangSharpPInvokeGenerator `
     --libraryPath obs <# name of the DLL #> `
     -o .\NetObsBindings\ObsInterop <# output folder #> `
     -r $replacements
+
+ClangSharpPInvokeGenerator `
+    -c $config `
+    --file .\obs-studio\libobs\obs-module.h <# file we want to generate bindings for #>  `
+    --traverse .\obs-studio\libobs\util\text-lookup.h `
+    -n ObsInterop <# namespace of the bindings #> `
+    --methodClassName TextLookup <# class name where to put methods #> `
+    --libraryPath obs <# name of the DLL #> `
+    -o .\NetObsBindings\ObsInterop <# output folder #> `
+    -r $replacements
