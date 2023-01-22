@@ -159,7 +159,7 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("lookup_t *")]
-    public static extern void* obs_module_load_locale([NativeTypeName("obs_module_t *")] obs_module* module, [NativeTypeName("const char *")] sbyte* default_locale, [NativeTypeName("const char *")] sbyte* locale);
+    public static extern text_lookup* obs_module_load_locale([NativeTypeName("obs_module_t *")] obs_module* module, [NativeTypeName("const char *")] sbyte* default_locale, [NativeTypeName("const char *")] sbyte* locale);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("char *")]
