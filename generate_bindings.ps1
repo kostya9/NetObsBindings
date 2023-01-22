@@ -125,3 +125,14 @@ ClangSharpPInvokeGenerator `
     -r $replacements
 
 
+ClangSharpPInvokeGenerator `
+    -c $config `
+    --file .\obs-studio\UI\obs-frontend-api\obs-frontend-api.h <# file we want to generate bindings for #>  `
+    --file .\obs-studio\libobs\util\darray.h  `
+    --include-directory .\obs-studio\libobs `
+    --include-directory .\obs-studio\libobs\util `
+    -n ObsInterop <# namespace of the bindings #> `
+    --methodClassName ObsFrontendApi <# class name where to put methods #> `
+    --libraryPath obs <# name of the DLL #> `
+    -o .\NetObsBindings\ObsInterop <# output folder #> `
+    -r $replacements
