@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace ObsInterop;
 
-public static unsafe partial class ObsUtilBase
+public static unsafe partial class ObsBase
 {
     public const int LOG_ERROR = 100;
     public const int LOG_WARNING = 200;
