@@ -18,7 +18,7 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
-    public static extern byte obs_startup([NativeTypeName("const char *")] sbyte* locale, [NativeTypeName("const char *")] sbyte* module_config_path, [NativeTypeName("profiler_name_store_t *")] void* store);
+    public static extern byte obs_startup([NativeTypeName("const char *")] sbyte* locale, [NativeTypeName("const char *")] sbyte* module_config_path, [NativeTypeName("profiler_name_store_t *")] profiler_name_store* store);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_shutdown();
@@ -54,7 +54,7 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("profiler_name_store_t *")]
-    public static extern void* obs_get_profiler_name_store();
+    public static extern profiler_name_store* obs_get_profiler_name_store();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int obs_reset_video([NativeTypeName("struct obs_video_info *")] obs_video_info* ovi);
@@ -279,11 +279,11 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("signal_handler_t *")]
-    public static extern void* obs_get_signal_handler();
+    public static extern signal_handler* obs_get_signal_handler();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("proc_handler_t *")]
-    public static extern void* obs_get_proc_handler();
+    public static extern proc_handler* obs_get_proc_handler();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [Obsolete]
@@ -621,7 +621,7 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_missing_files_t *")]
-    public static extern void* obs_source_get_missing_files([NativeTypeName("const obs_source_t *")] obs_source* source);
+    public static extern obs_missing_files* obs_source_get_missing_files([NativeTypeName("const obs_source_t *")] obs_source* source);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_source_replace_missing_file([NativeTypeName("obs_missing_file_cb")] delegate* unmanaged[Cdecl]<void*, sbyte*, void*, void> cb, [NativeTypeName("obs_source_t *")] obs_source* source, [NativeTypeName("const char *")] sbyte* new_path, void* data);
@@ -708,11 +708,11 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("signal_handler_t *")]
-    public static extern void* obs_source_get_signal_handler([NativeTypeName("const obs_source_t *")] obs_source* source);
+    public static extern signal_handler* obs_source_get_signal_handler([NativeTypeName("const obs_source_t *")] obs_source* source);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("proc_handler_t *")]
-    public static extern void* obs_source_get_proc_handler([NativeTypeName("const obs_source_t *")] obs_source* source);
+    public static extern proc_handler* obs_source_get_proc_handler([NativeTypeName("const obs_source_t *")] obs_source* source);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_source_set_volume([NativeTypeName("obs_source_t *")] obs_source* source, float volume);
@@ -1606,11 +1606,11 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("signal_handler_t *")]
-    public static extern void* obs_output_get_signal_handler([NativeTypeName("const obs_output_t *")] obs_output* output);
+    public static extern signal_handler* obs_output_get_signal_handler([NativeTypeName("const obs_output_t *")] obs_output* output);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("proc_handler_t *")]
-    public static extern void* obs_output_get_proc_handler([NativeTypeName("const obs_output_t *")] obs_output* output);
+    public static extern proc_handler* obs_output_get_proc_handler([NativeTypeName("const obs_output_t *")] obs_output* output);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_output_set_media([NativeTypeName("obs_output_t *")] obs_output* output, [NativeTypeName("video_t *")] video_output* video, [NativeTypeName("audio_t *")] audio_output* audio);

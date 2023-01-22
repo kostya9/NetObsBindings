@@ -149,7 +149,7 @@ public unsafe partial struct obs_source_info
     public sbyte* unversioned_id;
 
     [NativeTypeName("obs_missing_files_t *(*)(void *)")]
-    public delegate* unmanaged[Cdecl]<void*, void*> missing_files;
+    public delegate* unmanaged[Cdecl]<void*, obs_missing_files*> missing_files;
 
     [NativeTypeName("enum gs_color_space (*)(void *, size_t, const enum gs_color_space *)")]
     public delegate* unmanaged[Cdecl]<void*, nuint, gs_color_space*, gs_color_space> video_get_color_space;

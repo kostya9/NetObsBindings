@@ -1,5 +1,5 @@
 $config = "multi-file", "generate-file-scoped-namespaces", "generate-helper-types", "exclude-funcs-with-body", "generate-macro-bindings"
-$replacements = "obs_missing_files*=@void*", "vec2=@System.Numerics.Vector2", "vec3=@System.Numerics.Vector3", "vec4=@System.Numerics.Vector4", "profiler_name_store*=@void*", "signal_handler*=@void*", "proc_handler*=@void*", "input_subsystem*=@void*"
+$replacements = "vec2=@System.Numerics.Vector2", "vec3=@System.Numerics.Vector3", "vec4=@System.Numerics.Vector4"
 
 ClangSharpPInvokeGenerator `
     -c $config `
@@ -142,7 +142,67 @@ ClangSharpPInvokeGenerator `
     --file .\obs-studio\libobs\obs-module.h <# file we want to generate bindings for #>  `
     --traverse .\obs-studio\libobs\util\text-lookup.h `
     -n ObsInterop <# namespace of the bindings #> `
-    --methodClassName TextLookup <# class name where to put methods #> `
+    --methodClassName ObsTextLookup <# class name where to put methods #> `
+    --libraryPath obs <# name of the DLL #> `
+    -o .\NetObsBindings\ObsInterop <# output folder #> `
+    -r $replacements
+
+ClangSharpPInvokeGenerator `
+    -c $config `
+    --file .\obs-studio\libobs\obs-module.h <# file we want to generate bindings for #>  `
+    --traverse .\obs-studio\libobs\util\profiler.h `
+    -n ObsInterop <# namespace of the bindings #> `
+    --methodClassName ObsProfiler <# class name where to put methods #> `
+    --libraryPath obs <# name of the DLL #> `
+    -o .\NetObsBindings\ObsInterop <# output folder #> `
+    -r $replacements
+
+ClangSharpPInvokeGenerator `
+    -c $config `
+    --file .\obs-studio\libobs\obs-module.h <# file we want to generate bindings for #>  `
+    --traverse .\obs-studio\libobs\callback\proc.h `
+    -n ObsInterop <# namespace of the bindings #> `
+    --methodClassName ObsProc <# class name where to put methods #> `
+    --libraryPath obs <# name of the DLL #> `
+    -o .\NetObsBindings\ObsInterop <# output folder #> `
+    -r $replacements
+
+ClangSharpPInvokeGenerator `
+    -c $config `
+    --file .\obs-studio\libobs\obs-module.h <# file we want to generate bindings for #>  `
+    --traverse .\obs-studio\libobs\callback\signal.h `
+    -n ObsInterop <# namespace of the bindings #> `
+    --methodClassName ObsSignal <# class name where to put methods #> `
+    --libraryPath obs <# name of the DLL #> `
+    -o .\NetObsBindings\ObsInterop <# output folder #> `
+    -r $replacements
+
+ClangSharpPInvokeGenerator `
+    -c $config `
+    --file .\obs-studio\libobs\obs-module.h <# file we want to generate bindings for #>  `
+    --traverse .\obs-studio\libobs\obs-missing-files.h `
+    -n ObsInterop <# namespace of the bindings #> `
+    --methodClassName ObsMissingFiles <# class name where to put methods #> `
+    --libraryPath obs <# name of the DLL #> `
+    -o .\NetObsBindings\ObsInterop <# output folder #> `
+    -r $replacements
+
+ClangSharpPInvokeGenerator `
+    -c $config `
+    --file .\obs-studio\libobs\obs-module.h <# file we want to generate bindings for #>  `
+    --traverse .\obs-studio\libobs\callback\calldata.h `
+    -n ObsInterop <# namespace of the bindings #> `
+    --methodClassName ObsCalldata <# class name where to put methods #> `
+    --libraryPath obs <# name of the DLL #> `
+    -o .\NetObsBindings\ObsInterop <# output folder #> `
+    -r $replacements
+
+ClangSharpPInvokeGenerator `
+    -c $config `
+    --file .\obs-studio\libobs\obs-module.h <# file we want to generate bindings for #>  `
+    --traverse .\obs-studio\libobs\graphics\input.h `
+    -n ObsInterop <# namespace of the bindings #> `
+    --methodClassName ObsInput <# class name where to put methods #> `
     --libraryPath obs <# name of the DLL #> `
     -o .\NetObsBindings\ObsInterop <# output folder #> `
     -r $replacements

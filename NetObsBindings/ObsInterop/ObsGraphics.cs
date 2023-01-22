@@ -339,7 +339,7 @@ public static unsafe partial class ObsGraphics
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("input_t *")]
-    public static extern void* gs_get_input();
+    public static extern input_subsystem* gs_get_input();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_effect_t *")]

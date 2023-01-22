@@ -2,7 +2,7 @@ using System.Runtime.InteropServices;
 
 namespace ObsInterop;
 
-public static unsafe partial class TextLookup
+public static unsafe partial class ObsTextLookup
 {
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("lookup_t *")]
