@@ -1,7 +1,7 @@
 $config = "multi-file", "generate-file-scoped-namespaces", "generate-helper-types", "exclude-funcs-with-body", "generate-macro-bindings"
 $replacements = "vec2=@System.Numerics.Vector2", "vec3=@System.Numerics.Vector3", "vec4=@System.Numerics.Vector4"
 
-$obsModuleTracersals = ".\obs-studio\libobs\obs-source.h", ".\obs-studio\libobs\media-io\audio-io.h", ".\obs-studio\libobs\obs.h", ".\obs-studio\libobs\media-io\video-io.h", ".\obs-studio\libobs\media-io\frame-rate.h", ".\obs-studio\libobs\graphics\graphics.h", ".\obs-studio\libobs\obs-interaction.h", ".\obs-studio\libobs\obs-encoder.h", ".\obs-studio\libobs\obs-service.h", ".\obs-studio\libobs\util\base.h", ".\obs-studio\libobs\obs-properties.h", ".\obs-studio\libobs\obs-data.h", ".\obs-studio\libobs\util\text-lookup.h", ".\obs-studio\libobs\util\profiler.h", ".\obs-studio\libobs\callback\proc.h", ".\obs-studio\libobs\callback\signal.h", ".\obs-studio\libobs\obs-missing-files.h", ".\obs-studio\libobs\callback\calldata.h", ".\obs-studio\libobs\graphics\input.h"
+$obsModuleTracersals = ".\obs-studio\libobs\obs-source.h", ".\obs-studio\libobs\media-io\audio-io.h", ".\obs-studio\libobs\obs.h", ".\obs-studio\libobs\media-io\video-io.h", ".\obs-studio\libobs\media-io\frame-rate.h", ".\obs-studio\libobs\graphics\graphics.h", ".\obs-studio\libobs\obs-interaction.h", ".\obs-studio\libobs\obs-encoder.h", ".\obs-studio\libobs\obs-service.h", ".\obs-studio\libobs\util\base.h", ".\obs-studio\libobs\obs-properties.h", ".\obs-studio\libobs\obs-data.h", ".\obs-studio\libobs\util\text-lookup.h", ".\obs-studio\libobs\util\profiler.h", ".\obs-studio\libobs\callback\proc.h", ".\obs-studio\libobs\callback\signal.h", ".\obs-studio\libobs\obs-missing-files.h", ".\obs-studio\libobs\callback\calldata.h", ".\obs-studio\libobs\graphics\input.h", ".\obs-studio\libobs\obs-output.h"
 
  foreach ($obsModuleTracersal in $obsModuleTracersals)
  {
@@ -13,7 +13,10 @@ $obsModuleTracersals = ".\obs-studio\libobs\obs-source.h", ".\obs-studio\libobs\
     }
 
     $moduleName = -Join $moduleNameParts
-    $moduleName = "Obs" + $moduleName.TrimStart("Obs")
+
+    if (!$moduleName.StartsWith("Obs")) {
+        $moduleName = "Obs" + $moduleName;
+    }
 
      ClangSharpPInvokeGenerator `
         -c $config `
