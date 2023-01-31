@@ -7,7 +7,7 @@ NetObsBindings is a library that provides .NET bindings for Open Broadcast Softw
 These bindings are generated from the OBS repository, specifically [libobs](https://github.com/obsproject/obs-studio/tree/master/libobs) and [obs-frontend](https://github.com/obsproject/obs-studio/tree/master/UI/obs-frontend-api) projects.
 
 The approach taken is to generate a static class per header file via [ClangSharp](https://github.com/dotnet/ClangSharp) generator.
-This means, that, for example, you could find functions exported from the [obs-service](https://github.com/obsproject/obs-studio/blob/master/libobs/obs-service.h) file in the [ObsService](https://github.com/kostya9/NetObsBindings/blob/main/NetObsBindings/ObsInterop/ObsService.cs) C# class.
+This means, that, for example, you could find functions exported from the [obs-service.h](https://github.com/obsproject/obs-studio/blob/master/libobs/obs-service.h) file in the [ObsService](https://github.com/kostya9/NetObsBindings/blob/main/NetObsBindings/ObsInterop/ObsService.cs) C# class.
 
 ## How to use these bindings?
 
