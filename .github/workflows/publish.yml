@@ -3,6 +3,7 @@ name: release
 on:
     push:
         branches: [ main ]
+        paths: ['NetObsBindings/**']
 jobs:
     publish:
         runs-on: ubuntu-latest
