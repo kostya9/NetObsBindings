@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetObsBindings", "NetObsBindings\NetObsBindings.csproj", "{EC55055C-1D4C-416E-AEA2-A670318CBAB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1AD2D6FC-CBDF-4EC6-961C-F86A4F42FEFF}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		build.ps1 = build.ps1
+		generate_bindings.ps1 = generate_bindings.ps1
+		init_obs.ps1 = init_obs.ps1
+		LICENSE.md = LICENSE.md
+		NetObsBindings.sln = NetObsBindings.sln
+		README.md = README.md
+		replace_version.ps1 = replace_version.ps1
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC55055C-1D4C-416E-AEA2-A670318CBAB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC55055C-1D4C-416E-AEA2-A670318CBAB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC55055C-1D4C-416E-AEA2-A670318CBAB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC55055C-1D4C-416E-AEA2-A670318CBAB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
