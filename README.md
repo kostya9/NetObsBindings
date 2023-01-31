@@ -63,7 +63,7 @@ There is one caveat: make sure you are publishing the plugins as NativeAOT libra
 
 ## How to generate bindings locally?
 
-In order to generate bindings locally, please use the build.ps1 script. Make sure that you have ClangSharpPInvokeGenerator dotnet tool installed.
+In order to generate bindings locally, please use the [build.ps1](https://github.com/kostya9/NetObsBindings/blob/main/build.ps1) script. Make sure that you have ClangSharpPInvokeGenerator dotnet tool installed.
 
 This script will:
 1. Clone the OBS repository
