@@ -2,7 +2,7 @@
 
 [![NuGet version (NetObsBindings)](https://img.shields.io/nuget/v/NetObsBindings.svg?style=flat-square)](https://www.nuget.org/packages/NetObsBindings/)
 
-NetObsBindings is a library that provides .NET bindings for Open Broadcast Software (OBS).
+NetObsBindings is a library that provides .NET bindings for Open Broadcaster Software (OBS).
 
 These bindings are generated from the OBS repository, specifically [libobs](https://github.com/obsproject/obs-studio/tree/master/libobs) and [obs-frontend](https://github.com/obsproject/obs-studio/tree/master/UI/obs-frontend-api) projects.
 
