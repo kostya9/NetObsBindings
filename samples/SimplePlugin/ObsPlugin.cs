@@ -31,9 +31,12 @@ public static class ObsPlugin
     public static unsafe bool ModuleLoad()
     {
         Log("Loaded!");
+        
         var profilePath = ObsFrontendApi.obs_frontend_get_current_profile_path();
         var name = new string(profilePath);
         Log($"Current profile path = {name}");
+        ObsBmem.bfree(profilePath);
+        
         return true;
     }
 
