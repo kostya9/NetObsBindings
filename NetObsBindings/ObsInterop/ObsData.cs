@@ -414,7 +414,7 @@ public static unsafe partial class ObsData
     public static extern void obs_data_set_vec4([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct vec4 *")] System.Numerics.Vector4* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_data_set_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct quat *")] quat* val);
+    public static extern void obs_data_set_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct quat *")] System.Numerics.Quaternion* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_data_set_default_vec2([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct vec2 *")] System.Numerics.Vector2* val);
@@ -426,7 +426,7 @@ public static unsafe partial class ObsData
     public static extern void obs_data_set_default_vec4([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct vec4 *")] System.Numerics.Vector4* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_data_set_default_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct quat *")] quat* val);
+    public static extern void obs_data_set_default_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct quat *")] System.Numerics.Quaternion* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_data_set_autoselect_vec2([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct vec2 *")] System.Numerics.Vector2* val);
@@ -438,7 +438,7 @@ public static unsafe partial class ObsData
     public static extern void obs_data_set_autoselect_vec4([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct vec4 *")] System.Numerics.Vector4* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_data_set_autoselect_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct quat *")] quat* val);
+    public static extern void obs_data_set_autoselect_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct quat *")] System.Numerics.Quaternion* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_data_get_vec2([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct vec2 *")] System.Numerics.Vector2* val);
@@ -450,7 +450,7 @@ public static unsafe partial class ObsData
     public static extern void obs_data_get_vec4([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct vec4 *")] System.Numerics.Vector4* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_data_get_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct quat *")] quat* val);
+    public static extern void obs_data_get_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct quat *")] System.Numerics.Quaternion* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_data_get_default_vec2([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct vec2 *")] System.Numerics.Vector2* val);
@@ -462,7 +462,7 @@ public static unsafe partial class ObsData
     public static extern void obs_data_get_default_vec4([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct vec4 *")] System.Numerics.Vector4* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_data_get_default_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct quat *")] quat* val);
+    public static extern void obs_data_get_default_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct quat *")] System.Numerics.Quaternion* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_data_get_autoselect_vec2([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct vec2 *")] System.Numerics.Vector2* val);
@@ -474,7 +474,7 @@ public static unsafe partial class ObsData
     public static extern void obs_data_get_autoselect_vec4([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct vec4 *")] System.Numerics.Vector4* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_data_get_autoselect_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct quat *")] quat* val);
+    public static extern void obs_data_get_autoselect_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct quat *")] System.Numerics.Quaternion* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_data_set_frames_per_second([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct media_frames_per_second")] media_frames_per_second fps, [NativeTypeName("const char *")] sbyte* option);

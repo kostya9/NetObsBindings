@@ -277,7 +277,7 @@ public static unsafe partial class ObsGraphics
     public static extern void gs_matrix_mul([NativeTypeName("const struct matrix4 *")] matrix4* matrix);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void gs_matrix_rotquat([NativeTypeName("const struct quat *")] quat* rot);
+    public static extern void gs_matrix_rotquat([NativeTypeName("const struct quat *")] System.Numerics.Quaternion* rot);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_matrix_rotaa([NativeTypeName("const struct axisang *")] axisang* rot);
@@ -384,7 +384,7 @@ public static unsafe partial class ObsGraphics
     public static extern void gs_draw_sprite_subregion([NativeTypeName("gs_texture_t *")] gs_texture* tex, [NativeTypeName("uint32_t")] uint flip, [NativeTypeName("uint32_t")] uint x, [NativeTypeName("uint32_t")] uint y, [NativeTypeName("uint32_t")] uint cx, [NativeTypeName("uint32_t")] uint cy);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void gs_draw_cube_backdrop([NativeTypeName("gs_texture_t *")] gs_texture* cubetex, [NativeTypeName("const struct quat *")] quat* rot, float left, float right, float top, float bottom, float znear);
+    public static extern void gs_draw_cube_backdrop([NativeTypeName("gs_texture_t *")] gs_texture* cubetex, [NativeTypeName("const struct quat *")] System.Numerics.Quaternion* rot, float left, float right, float top, float bottom, float znear);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_reset_viewport();

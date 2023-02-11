@@ -18,7 +18,7 @@ function Get-ObsClassName {
 }
 
 $config = "multi-file", "generate-file-scoped-namespaces", "generate-helper-types", "exclude-funcs-with-body", "generate-macro-bindings"
-$replacements = "vec2=@System.Numerics.Vector2", "vec3=@System.Numerics.Vector3", "vec4=@System.Numerics.Vector4"
+$replacements = "vec2=@System.Numerics.Vector2", "vec3=@System.Numerics.Vector3", "vec4=@System.Numerics.Vector4", "half=@Half", "__m128=@System.Runtime.Intrinsics.Vector128<Single>", "quat=@System.Numerics.Quaternion"
 
 $obsModuleTracersals = @(
     ".\obs-studio\libobs\obs-source.h",
@@ -30,8 +30,6 @@ $obsModuleTracersals = @(
     ".\obs-studio\libobs\obs-service.h",
     ".\obs-studio\libobs\obs-properties.h",
     ".\obs-studio\libobs\obs-data.h",
-    ".\obs-studio\libobs\graphics\graphics.h",
-    ".\obs-studio\libobs\graphics\input.h",
     ".\obs-studio\libobs\util\text-lookup.h",
     ".\obs-studio\libobs\util\profiler.h",
     ".\obs-studio\libobs\util\base.h",
@@ -78,6 +76,41 @@ $obsModuleTracersals = @(
         -c $config `
         --file .\generate\media-io\obs-media-io.h `
         --traverse $mediaLibrary <# file we want to generate bindings for #>  `
+        --include-directory .\obs-studio\libobs `
+        -n ObsInterop <# namespace of the bindings #> `
+        --methodClassName $moduleName <# class name where to put methods #> `
+        --libraryPath obs <# name of the DLL #> `
+        -o .\NetObsBindings\ObsInterop <# output folder #> `
+        -r $replacements
+ }
+
+ $graphicsLibraries = @(
+    ".\obs-studio\libobs\graphics\graphics.h",
+    ".\obs-studio\libobs\graphics\input.h",
+    ".\obs-studio\libobs\graphics\axisang.h",
+    ".\obs-studio\libobs\graphics\bounds.h",
+    ".\obs-studio\libobs\graphics\device-exports.h",
+    ".\obs-studio\libobs\graphics\effect.h",
+    ".\obs-studio\libobs\graphics\image-file.h",
+    ".\obs-studio\libobs\graphics\math-defs.h",
+    ".\obs-studio\libobs\graphics\math-extra.h",
+    ".\obs-studio\libobs\graphics\matrix3.h",
+    ".\obs-studio\libobs\graphics\matrix4.h",
+    ".\obs-studio\libobs\graphics\plane.h",
+    ".\obs-studio\libobs\graphics\srgb.h",
+    ".\obs-studio\libobs\graphics\libnsgif\libnsgif.h"
+ );
+
+  foreach ($graphicsLibrary in $graphicsLibraries)
+ {
+    Write-Host "----Generating bindings for file ""$graphicsLibrary"""
+
+    $moduleName = Get-ObsClassName $graphicsLibrary
+
+     ClangSharpPInvokeGenerator `
+        -c $config `
+        --file .\generate\graphics\obs-graphics.h `
+        --traverse $graphicsLibrary <# file we want to generate bindings for #>  `
         --include-directory .\obs-studio\libobs `
         -n ObsInterop <# namespace of the bindings #> `
         --methodClassName $moduleName <# class name where to put methods #> `
