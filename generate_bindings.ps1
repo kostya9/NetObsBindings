@@ -30,9 +30,6 @@ $obsModuleTracersals = @(
     ".\obs-studio\libobs\obs-service.h",
     ".\obs-studio\libobs\obs-properties.h",
     ".\obs-studio\libobs\obs-data.h",
-    ".\obs-studio\libobs\util\text-lookup.h",
-    ".\obs-studio\libobs\util\profiler.h",
-    ".\obs-studio\libobs\util\base.h",
     ".\obs-studio\libobs\callback\proc.h",
     ".\obs-studio\libobs\callback\signal.h",
     ".\obs-studio\libobs\callback\calldata.h"
@@ -118,6 +115,31 @@ $obsModuleTracersals = @(
         -o .\NetObsBindings\ObsInterop <# output folder #> `
         -r $replacements
  }
+
+$utilLibraries = @(
+    ".\obs-studio\libobs\util\text-lookup.h",
+    ".\obs-studio\libobs\util\profiler.h",
+    ".\obs-studio\libobs\util\base.h",
+    ".\obs-studio\libobs\util\bmem.h"
+);
+
+foreach ($utilLibrary in $utilLibraries)
+{
+    Write-Host "----Generating bindings for file ""$utilLibrary"""
+
+    $moduleName = Get-ObsClassName $utilLibrary
+
+    ClangSharpPInvokeGenerator `
+        -c $config `
+        --file .\generate\util\obs-util.h `
+        --traverse $utilLibrary <# file we want to generate bindings for #>  `
+        --include-directory .\obs-studio\libobs `
+        -n ObsInterop <# namespace of the bindings #> `
+        --methodClassName $moduleName <# class name where to put methods #> `
+        --libraryPath obs <# name of the DLL #> `
+        -o .\NetObsBindings\ObsInterop <# output folder #> `
+        -r $replacements
+}
 
 ClangSharpPInvokeGenerator `
     -c $config `
