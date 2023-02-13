@@ -11,53 +11,19 @@ This means, that, for example, you could find functions exported from the [obs-s
 
 ## How to use these bindings?
 
-These bindings can be used to create your own plugin in C#.
+These bindings can be used to create your own plugin in C#. There is one caveat: make sure you are publishing the plugins as NativeAOT libraries, this is essential to make it work due to the plugin model of OBS.
 
-Simple plugin example:
+Examples:
+- samples folder contains a [simple plugin example](https://github.com/kostya9/NetObsBindings/blob/main/samples/SimplePlugin/ObsPlugin.cs).
+- more compresensive example - [ObsCSharpExample](https://github.com/YorVeX/ObsCSharpExample) by @YorVeX  
+    > Example for an OBS plugin written in C# containing various standard items like output, filter, source or a settings dialog in the OBS Tools menu.
 
-```c#
-public static class ObsPlugin
-{
-    public static nint ObsModulePointer { get; set; }
 
-    [UnmanagedCallersOnly(EntryPoint = "obs_module_set_pointer", CallConvs = new[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
-    public static void SetPointer(nint obsModulePointer)
-    {
-        Log("[blog] Pointer Saved!");
-        ObsModulePointer = obsModulePointer;
-    }
-    
-    [UnmanagedCallersOnly(EntryPoint = "obs_module_ver", CallConvs = new[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
-    public static uint GetVersion()
-    {
-        Log("[blog] Returned version!");
-        
-        var major = (uint) Obs.Version.Major;
-        var minor = (uint) Obs.Version.Minor;
-        var patch = (uint) Obs.Version.Build;
-        var version = (major << 24) | (minor << 16) | patch;
-        return version;
-    }
+Plugins made using this library:
+- [xObsBrowserAutoRefresh](https://github.com/YorVeX/xObsBrowserAutoRefresh) by @YorVeX
+    > OBS plugin providing a filter for automatically refreshing a browser source in a configurable interval.
 
-    [UnmanagedCallersOnly(EntryPoint = "obs_module_load", CallConvs = new[] {typeof(System.Runtime.CompilerServices.CallConvCdecl)})]
-    public static bool ModuleLoad()
-    {
-        Log("[blog] Loaded!");
-        return true;
-    }
 
-    private static unsafe void Log(string text)
-    {
-        var asciiBytes = Encoding.UTF8.GetBytes(text);
-        fixed (byte* logMessagePtr = asciiBytes)
-        {
-            ObsBase.blogva(ObsBase.LOG_INFO, (sbyte*) logMessagePtr, null);   
-        }
-    }
-}
-```
-
-There is one caveat: make sure you are publishing the plugins as NativeAOT libraries, this is essential to make it work due to the plugin model of OBS.
 
 ---
 
