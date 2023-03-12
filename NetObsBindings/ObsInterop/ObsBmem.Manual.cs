@@ -47,6 +47,6 @@ public static unsafe partial class ObsBmem
 
         for (searchCharacter = str; *searchCharacter != 0; ++searchCharacter) ;
 
-        return (nuint) (str - searchCharacter);
+        return (nuint) (searchCharacter - str);
     }
 }
