@@ -43,11 +43,10 @@ public static unsafe partial class ObsBmem
 
     private static nuint strlen(char* str)
     {
-        var initialPtr = str;
-        while (*(str++) != 0)
-        {
-        }
+        char *searchCharacter;
 
-        return (nuint) (str - initialPtr);
+        for (searchCharacter = str; *searchCharacter != 0; ++searchCharacter) ;
+
+        return (nuint) (str - searchCharacter);
     }
 }
