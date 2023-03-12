@@ -22,18 +22,18 @@ public static unsafe partial class ObsBmem
         return mem;
     }
 
-    public static char* bstrdup_n(char* str, nuint n)
+    public static sbyte* bstrdup_n(sbyte* str, nuint n)
     {
         if (str == null)
             return null;
 
-        var dup = (char *)bmemdup(str, n + 1);
-        dup[n] = (char) 0;
+        var dup = (sbyte *)bmemdup(str, n + 1);
+        dup[n] = 0;
 
         return dup;
     }
 
-    public static char *bstrdup(char *str)
+    public static sbyte *bstrdup(sbyte *str)
     {
         if (str == null)
             return null;
@@ -41,9 +41,9 @@ public static unsafe partial class ObsBmem
         return bstrdup_n(str, strlen(str));
     }
 
-    private static nuint strlen(char* str)
+    private static nuint strlen(sbyte* str)
     {
-        char *searchCharacter;
+        sbyte *searchCharacter;
 
         for (searchCharacter = str; *searchCharacter != 0; ++searchCharacter) ;
 
