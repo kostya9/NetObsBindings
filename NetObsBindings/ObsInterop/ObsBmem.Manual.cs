@@ -1,11 +1,16 @@
-﻿namespace ObsInterop;
+﻿using System.Runtime.InteropServices;
+
+namespace ObsInterop;
 
 public static unsafe partial class ObsBmem
 {
+    /// <summary>
+    /// Allocates a chunk of unmanaged OBS memory with size=<see cref="Marshal.SizeOf{T}()"/>
+    /// </summary>
     public static T* bzalloc<T>()
         where T: unmanaged
     {
-        var size = sizeof(T);
+        var size = Marshal.SizeOf<T>();
         return (T*) bzalloc((nuint) size);
     }
 
