@@ -267,9 +267,6 @@ public static unsafe partial class ObsFrontendApi
     public static extern void obs_frontend_open_source_interaction([NativeTypeName("obs_source_t *")] obs_source* source);
 
     [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_frontend_open_sceneitem_edit_transform([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* item);
-
-    [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("char *")]
     public static extern sbyte* obs_frontend_get_current_record_output_path();
 
@@ -292,9 +289,6 @@ public static unsafe partial class ObsFrontendApi
     [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("char *")]
     public static extern sbyte* obs_frontend_get_last_replay();
-
-    [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_frontend_add_undo_redo_action([NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const undo_redo_cb")] delegate* unmanaged[Cdecl]<sbyte*, void> undo, [NativeTypeName("const undo_redo_cb")] delegate* unmanaged[Cdecl]<sbyte*, void> redo, [NativeTypeName("const char *")] sbyte* undo_data, [NativeTypeName("const char *")] sbyte* redo_data, [NativeTypeName("bool")] byte repeatable);
 
     [NativeTypeName("#define DARRAY_INVALID ((size_t)-1)")]
     public static readonly nuint DARRAY_INVALID = unchecked((nuint)(-1));

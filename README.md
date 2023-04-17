@@ -36,6 +36,8 @@ This script will:
 2. Generate bindings for all required modules
 3. Insert the version of the OBS library to [Obs.Version.cs](https://github.com/kostya9/NetObsBindings/blob/main/NetObsBindings/Obs.Version.cs) file.
 
+NB: to change the OBS version - modify the $GitTag variable in the ./init_obs.ps1 script
+
 ---
 
 Originally, these bindings generated in the blog post https://sharovarskyi.com/blog/posts/clangsharp-dotnet-interop-bindings/

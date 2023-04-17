@@ -26,5 +26,5 @@ jobs:
             - name: Pack & Publish to nuget
               shell: bash
               run: |
-                dotnet pack ./NetObsBindings -c release -o publish
+                dotnet pack ./NetObsBindings -c release -o publish /p:ContinuousIntegrationBuild=true
                 dotnet nuget push publish/*.nupkg -k ${{secrets.NUGET_TOKEN}} -s https://api.nuget.org/v3/index.json

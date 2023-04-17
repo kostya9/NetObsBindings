@@ -27,7 +27,4 @@ public static unsafe partial class ObsOutput
 
     [NativeTypeName("#define OBS_OUTPUT_CAN_PAUSE (1 << 5)")]
     public const int OBS_OUTPUT_CAN_PAUSE = (1 << 5);
-
-    [NativeTypeName("#define MAX_OUTPUT_AUDIO_ENCODERS 6")]
-    public const int MAX_OUTPUT_AUDIO_ENCODERS = 6;
 }
