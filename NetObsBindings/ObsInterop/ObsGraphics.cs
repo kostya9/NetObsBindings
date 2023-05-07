@@ -856,6 +856,13 @@ public static unsafe partial class ObsGraphics
     public static extern gs_texture* gs_duplicator_get_texture([NativeTypeName("gs_duplicator_t *")] gs_duplicator* duplicator);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("enum gs_color_space")]
+    public static extern gs_color_space gs_duplicator_get_color_space([NativeTypeName("gs_duplicator_t *")] gs_duplicator* duplicator);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float gs_duplicator_get_sdr_white_level([NativeTypeName("gs_duplicator_t *")] gs_duplicator* duplicator);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("uint32_t")]
     public static extern uint gs_get_adapter_count();
 

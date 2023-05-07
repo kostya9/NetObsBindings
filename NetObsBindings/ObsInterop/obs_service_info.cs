@@ -69,4 +69,16 @@ public unsafe partial struct obs_service_info
 
     [NativeTypeName("const char **(*)(void *)")]
     public delegate* unmanaged[Cdecl]<void*, sbyte**> get_supported_video_codecs;
+
+    [NativeTypeName("const char *(*)(void *)")]
+    public delegate* unmanaged[Cdecl]<void*, sbyte*> get_protocol;
+
+    [NativeTypeName("const char **(*)(void *)")]
+    public delegate* unmanaged[Cdecl]<void*, sbyte**> get_supported_audio_codecs;
+
+    [NativeTypeName("const char *(*)(void *, uint32_t)")]
+    public delegate* unmanaged[Cdecl]<void*, uint, sbyte*> get_connect_info;
+
+    [NativeTypeName("bool (*)(void *)")]
+    public delegate* unmanaged[Cdecl]<void*, byte> can_try_to_connect;
 }

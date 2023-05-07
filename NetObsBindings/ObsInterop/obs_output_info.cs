@@ -69,4 +69,7 @@ public unsafe partial struct obs_output_info
 
     [NativeTypeName("void (*)(void *, size_t, struct audio_data *)")]
     public delegate* unmanaged[Cdecl]<void*, nuint, audio_data*, void> raw_audio2;
+
+    [NativeTypeName("const char *")]
+    public sbyte* protocols;
 }

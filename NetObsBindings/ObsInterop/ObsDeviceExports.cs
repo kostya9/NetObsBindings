@@ -270,4 +270,12 @@ public static unsafe partial class ObsDeviceExports
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void device_debug_marker_end([NativeTypeName("gs_device_t *")] gs_device* device);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte device_is_monitor_hdr([NativeTypeName("gs_device_t *")] gs_device* device, void* monitor);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte device_shared_texture_available();
 }

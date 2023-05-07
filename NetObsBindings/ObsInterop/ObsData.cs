@@ -32,6 +32,10 @@ public static unsafe partial class ObsData
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const char *")]
+    public static extern sbyte* obs_data_get_json_pretty([NativeTypeName("obs_data_t *")] obs_data* data);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("const char *")]
     public static extern sbyte* obs_data_get_last_json([NativeTypeName("obs_data_t *")] obs_data* data);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -41,6 +45,10 @@ public static unsafe partial class ObsData
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
     public static extern byte obs_data_save_json_safe([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* file, [NativeTypeName("const char *")] sbyte* temp_ext, [NativeTypeName("const char *")] sbyte* backup_ext);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_data_save_json_pretty_safe([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* file, [NativeTypeName("const char *")] sbyte* temp_ext, [NativeTypeName("const char *")] sbyte* backup_ext);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_data_apply([NativeTypeName("obs_data_t *")] obs_data* target, [NativeTypeName("obs_data_t *")] obs_data* apply_data);

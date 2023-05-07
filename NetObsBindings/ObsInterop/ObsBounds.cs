@@ -59,15 +59,6 @@ public static unsafe partial class ObsBounds
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern float bounds_min_dist([NativeTypeName("const struct bounds *")] bounds* b, [NativeTypeName("const struct plane *")] plane* p);
 
-    [NativeTypeName("#define BOUNDS_MAX_X 1")]
-    public const int BOUNDS_MAX_X = 1;
-
-    [NativeTypeName("#define BOUNDS_MAX_Y 2")]
-    public const int BOUNDS_MAX_Y = 2;
-
-    [NativeTypeName("#define BOUNDS_MAX_Z 4")]
-    public const int BOUNDS_MAX_Z = 4;
-
     [NativeTypeName("#define BOUNDS_OUTSIDE 1")]
     public const int BOUNDS_OUTSIDE = 1;
 

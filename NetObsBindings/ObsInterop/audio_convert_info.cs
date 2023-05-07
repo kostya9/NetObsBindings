@@ -10,4 +10,7 @@ public partial struct audio_convert_info
 
     [NativeTypeName("enum speaker_layout")]
     public speaker_layout speakers;
+
+    [NativeTypeName("bool")]
+    public byte allow_clipping;
 }
