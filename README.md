@@ -15,7 +15,7 @@ These bindings can be used to create your own plugin in C#. There is one caveat:
 
 Examples:
 - samples folder contains a [simple plugin example](https://github.com/kostya9/NetObsBindings/blob/main/samples/SimplePlugin/ObsPlugin.cs).
-- more compresensive example - [ObsCSharpExample](https://github.com/YorVeX/ObsCSharpExample) by [@YorVeX](https://github.com/YorVeX)
+- more comprehensive example - [ObsCSharpExample](https://github.com/YorVeX/ObsCSharpExample) by [@YorVeX](https://github.com/YorVeX)
     > Example for an OBS plugin written in C# containing various standard items like output, filter, source or a settings dialog in the OBS Tools menu.
 
 
