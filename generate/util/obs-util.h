@@ -4,3 +4,4 @@
 #include <util/profiler.h>
 #include <util/base.h>
 #include <util/bmem.h>
+#include <util/platform.h>

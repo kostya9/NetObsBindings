@@ -18,8 +18,8 @@ function Get-ObsClassName {
 }
 
 $config = "multi-file", "generate-file-scoped-namespaces", "generate-helper-types", "exclude-funcs-with-body", "generate-macro-bindings", "latest-codegen"
-$replacements = "vec2=@System.Numerics.Vector2", "vec3=@System.Numerics.Vector3", "vec4=@System.Numerics.Vector4", "half=@Half", "__m128=@System.Runtime.Intrinsics.Vector128<Single>", "quat=@System.Numerics.Quaternion"
-$excludes = "blogva", "blog"
+$replacements = "vec2=@System.Numerics.Vector2", "vec3=@System.Numerics.Vector3", "vec4=@System.Numerics.Vector4", "half=@Half", "__m128=@System.Runtime.Intrinsics.Vector128<Single>", "quat=@System.Numerics.Quaternion", "_iobuf*=@nint","stat*=@nint"
+$excludes = "blogva", "blog", "ARCH_BITS"
 
 $obsModuleTracersals = @(
     ".\obs-studio\libobs\obs-source.h",
@@ -124,7 +124,8 @@ $utilLibraries = @(
     ".\obs-studio\libobs\util\text-lookup.h",
     ".\obs-studio\libobs\util\profiler.h",
     ".\obs-studio\libobs\util\base.h",
-    ".\obs-studio\libobs\util\bmem.h"
+    ".\obs-studio\libobs\util\bmem.h",
+    ".\obs-studio\libobs\util\platform.h"
 );
 
 foreach ($utilLibrary in $utilLibraries)

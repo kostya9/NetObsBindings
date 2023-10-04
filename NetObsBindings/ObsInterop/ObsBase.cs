@@ -23,11 +23,11 @@ public static unsafe partial class ObsBase
     public static extern void bcrash([NativeTypeName("const char *")] sbyte* format, __arglist);
 
     [NativeTypeName("#define S__LINE__ STRINGIFY_(__LINE__)")]
-    public static ReadOnlySpan<byte> S__LINE__ => "7"u8;
+    public static ReadOnlySpan<byte> S__LINE__ => "9"u8;
 
     [NativeTypeName("#define INT_CUR_LINE __LINE__")]
-    public const int INT_CUR_LINE = 9;
+    public const int INT_CUR_LINE = 11;
 
     [NativeTypeName("#define FILE_LINE __FILE__ \" (\" S__LINE__ \"): \"")]
-    public static ReadOnlySpan<byte> FILE_LINE => ".\\generate\\util\\obs-util.h (11): "u8;
+    public static ReadOnlySpan<byte> FILE_LINE => ".\\generate\\util\\obs-util.h (13): "u8;
 }
