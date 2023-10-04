@@ -1,45 +1,51 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace ObsInterop;
 
 public unsafe partial struct axisang
 {
-    [NativeTypeName("axisang::(anonymous union at ./obs-studio/libobs/graphics/axisang.h:29:2)")]
+    [NativeTypeName("__AnonymousRecord_axisang_L29_C2")]
     public _Anonymous_e__Union Anonymous;
 
+    [UnscopedRef]
     public ref float x
     {
         get
         {
-            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.Anonymous.x, 1));
+            return ref Anonymous.Anonymous.x;
         }
     }
 
+    [UnscopedRef]
     public ref float y
     {
         get
         {
-            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.Anonymous.y, 1));
+            return ref Anonymous.Anonymous.y;
         }
     }
 
+    [UnscopedRef]
     public ref float z
     {
         get
         {
-            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.Anonymous.z, 1));
+            return ref Anonymous.Anonymous.z;
         }
     }
 
+    [UnscopedRef]
     public ref float w
     {
         get
         {
-            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.Anonymous.w, 1));
+            return ref Anonymous.Anonymous.w;
         }
     }
 
+    [UnscopedRef]
     public Span<float> ptr
     {
         get
@@ -52,7 +58,7 @@ public unsafe partial struct axisang
     public unsafe partial struct _Anonymous_e__Union
     {
         [FieldOffset(0)]
-        [NativeTypeName("axisang::(anonymous struct at ./obs-studio/libobs/graphics/axisang.h:30:3)")]
+        [NativeTypeName("__AnonymousRecord_axisang_L30_C3")]
         public _Anonymous_e__Struct Anonymous;
 
         [FieldOffset(0)]

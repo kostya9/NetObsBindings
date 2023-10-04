@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace ObsInterop;
@@ -17,6 +18,7 @@ public partial struct obs_source_audio_mix
         public audio_output_data e4;
         public audio_output_data e5;
 
+        [UnscopedRef]
         public ref audio_output_data this[int index]
         {
             get
@@ -25,6 +27,7 @@ public partial struct obs_source_audio_mix
             }
         }
 
+        [UnscopedRef]
         public Span<audio_output_data> AsSpan() => MemoryMarshal.CreateSpan(ref e0, 6);
     }
 }

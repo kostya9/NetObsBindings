@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace ObsInterop;
@@ -13,7 +14,7 @@ public unsafe partial struct gs_effect_technique
     [NativeTypeName("struct gs_effect *")]
     public gs_effect* effect;
 
-    [NativeTypeName("union (anonymous union at ./obs-studio/libobs/graphics/effect.h:130:2)")]
+    [NativeTypeName("__AnonymousRecord_effect_L130_C2")]
     public _passes_e__Union passes;
 
     [StructLayout(LayoutKind.Explicit)]
@@ -24,30 +25,33 @@ public unsafe partial struct gs_effect_technique
         public darray da;
 
         [FieldOffset(0)]
-        [NativeTypeName("gs_effect_technique::(anonymous struct at ./obs-studio/libobs/graphics/effect.h:130:2)")]
+        [NativeTypeName("__AnonymousRecord_effect_L130_C2")]
         public _Anonymous_e__Struct Anonymous;
 
+        [UnscopedRef]
         public ref gs_effect_pass* array
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref this, 1)).Anonymous.array;
+                return ref Anonymous.array;
             }
         }
 
+        [UnscopedRef]
         public ref nuint num
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.num, 1));
+                return ref Anonymous.num;
             }
         }
 
+        [UnscopedRef]
         public ref nuint capacity
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.capacity, 1));
+                return ref Anonymous.capacity;
             }
         }
 

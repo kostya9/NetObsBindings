@@ -17,7 +17,7 @@ function Get-ObsClassName {
     $moduleName
 }
 
-$config = "multi-file", "generate-file-scoped-namespaces", "generate-helper-types", "exclude-funcs-with-body", "generate-macro-bindings"
+$config = "multi-file", "generate-file-scoped-namespaces", "generate-helper-types", "exclude-funcs-with-body", "generate-macro-bindings", "latest-codegen"
 $replacements = "vec2=@System.Numerics.Vector2", "vec3=@System.Numerics.Vector3", "vec4=@System.Numerics.Vector4", "half=@Half", "__m128=@System.Runtime.Intrinsics.Vector128<Single>", "quat=@System.Numerics.Quaternion"
 $excludes = "blogva", "blog"
 

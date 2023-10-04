@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace ObsInterop;
@@ -10,30 +11,33 @@ public unsafe partial struct profiler_time_entries_t
     public darray da;
 
     [FieldOffset(0)]
-    [NativeTypeName("profiler_time_entries_t::(anonymous struct at ./obs-studio/libobs/util/profiler.h:64:9)")]
+    [NativeTypeName("__AnonymousRecord_profiler_L64_C9")]
     public _Anonymous_e__Struct Anonymous;
 
+    [UnscopedRef]
     public ref profiler_time_entry* array
     {
         get
         {
-            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref this, 1)).Anonymous.array;
+            return ref Anonymous.array;
         }
     }
 
+    [UnscopedRef]
     public ref nuint num
     {
         get
         {
-            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.num, 1));
+            return ref Anonymous.num;
         }
     }
 
+    [UnscopedRef]
     public ref nuint capacity
     {
         get
         {
-            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.capacity, 1));
+            return ref Anonymous.capacity;
         }
     }
 

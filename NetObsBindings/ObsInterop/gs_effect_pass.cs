@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace ObsInterop;
@@ -16,10 +17,10 @@ public unsafe partial struct gs_effect_pass
     [NativeTypeName("gs_shader_t *")]
     public gs_shader* pixelshader;
 
-    [NativeTypeName("union (anonymous union at ./obs-studio/libobs/graphics/effect.h:104:2)")]
+    [NativeTypeName("__AnonymousRecord_effect_L104_C2")]
     public _vertshader_params_e__Union vertshader_params;
 
-    [NativeTypeName("union (anonymous union at ./obs-studio/libobs/graphics/effect.h:105:2)")]
+    [NativeTypeName("__AnonymousRecord_effect_L105_C2")]
     public _pixelshader_params_e__Union pixelshader_params;
 
     [StructLayout(LayoutKind.Explicit)]
@@ -30,30 +31,33 @@ public unsafe partial struct gs_effect_pass
         public darray da;
 
         [FieldOffset(0)]
-        [NativeTypeName("gs_effect_pass::(anonymous struct at ./obs-studio/libobs/graphics/effect.h:104:2)")]
+        [NativeTypeName("__AnonymousRecord_effect_L104_C2")]
         public _Anonymous_e__Struct Anonymous;
 
+        [UnscopedRef]
         public ref pass_shaderparam* array
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref this, 1)).Anonymous.array;
+                return ref Anonymous.array;
             }
         }
 
+        [UnscopedRef]
         public ref nuint num
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.num, 1));
+                return ref Anonymous.num;
             }
         }
 
+        [UnscopedRef]
         public ref nuint capacity
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.capacity, 1));
+                return ref Anonymous.capacity;
             }
         }
 
@@ -78,30 +82,33 @@ public unsafe partial struct gs_effect_pass
         public darray da;
 
         [FieldOffset(0)]
-        [NativeTypeName("gs_effect_pass::(anonymous struct at ./obs-studio/libobs/graphics/effect.h:105:2)")]
+        [NativeTypeName("__AnonymousRecord_effect_L105_C2")]
         public _Anonymous_e__Struct Anonymous;
 
+        [UnscopedRef]
         public ref pass_shaderparam* array
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref this, 1)).Anonymous.array;
+                return ref Anonymous.array;
             }
         }
 
+        [UnscopedRef]
         public ref nuint num
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.num, 1));
+                return ref Anonymous.num;
             }
         }
 
+        [UnscopedRef]
         public ref nuint capacity
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.capacity, 1));
+                return ref Anonymous.capacity;
             }
         }
 

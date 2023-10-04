@@ -1,10 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace ObsInterop;
 
 public partial struct obs_frontend_source_list
 {
-    [NativeTypeName("union (anonymous union at ./obs-studio/UI/obs-frontend-api/obs-frontend-api.h:72:2)")]
+    [NativeTypeName("__AnonymousRecord_obs-frontend-api_L72_C2")]
     public _sources_e__Union sources;
 
     [StructLayout(LayoutKind.Explicit)]
@@ -15,30 +16,33 @@ public partial struct obs_frontend_source_list
         public darray da;
 
         [FieldOffset(0)]
-        [NativeTypeName("obs_frontend_source_list::(anonymous struct at ./obs-studio/UI/obs-frontend-api/obs-frontend-api.h:72:2)")]
+        [NativeTypeName("__AnonymousRecord_obs-frontend-api_L72_C2")]
         public _Anonymous_e__Struct Anonymous;
 
+        [UnscopedRef]
         public ref obs_source** array
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref this, 1)).Anonymous.array;
+                return ref Anonymous.array;
             }
         }
 
+        [UnscopedRef]
         public ref nuint num
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.num, 1));
+                return ref Anonymous.num;
             }
         }
 
+        [UnscopedRef]
         public ref nuint capacity
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.capacity, 1));
+                return ref Anonymous.capacity;
             }
         }
 

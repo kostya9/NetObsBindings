@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace ObsInterop;
@@ -16,10 +17,10 @@ public unsafe partial struct gs_effect_param
     [NativeTypeName("bool")]
     public byte changed;
 
-    [NativeTypeName("union (anonymous union at ./obs-studio/libobs/graphics/effect.h:57:2)")]
+    [NativeTypeName("__AnonymousRecord_effect_L57_C2")]
     public _cur_val_e__Union cur_val;
 
-    [NativeTypeName("union (anonymous union at ./obs-studio/libobs/graphics/effect.h:58:2)")]
+    [NativeTypeName("__AnonymousRecord_effect_L58_C2")]
     public _default_val_e__Union default_val;
 
     [NativeTypeName("gs_effect_t *")]
@@ -28,7 +29,7 @@ public unsafe partial struct gs_effect_param
     [NativeTypeName("gs_samplerstate_t *")]
     public gs_sampler_state* next_sampler;
 
-    [NativeTypeName("union (anonymous union at ./obs-studio/libobs/graphics/effect.h:65:2)")]
+    [NativeTypeName("__AnonymousRecord_effect_L65_C2")]
     public _annotations_e__Union annotations;
 
     [StructLayout(LayoutKind.Explicit)]
@@ -39,30 +40,33 @@ public unsafe partial struct gs_effect_param
         public darray da;
 
         [FieldOffset(0)]
-        [NativeTypeName("gs_effect_param::(anonymous struct at ./obs-studio/libobs/graphics/effect.h:57:2)")]
+        [NativeTypeName("__AnonymousRecord_effect_L57_C2")]
         public _Anonymous_e__Struct Anonymous;
 
+        [UnscopedRef]
         public ref byte* array
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref this, 1)).Anonymous.array;
+                return ref Anonymous.array;
             }
         }
 
+        [UnscopedRef]
         public ref nuint num
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.num, 1));
+                return ref Anonymous.num;
             }
         }
 
+        [UnscopedRef]
         public ref nuint capacity
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.capacity, 1));
+                return ref Anonymous.capacity;
             }
         }
 
@@ -87,30 +91,33 @@ public unsafe partial struct gs_effect_param
         public darray da;
 
         [FieldOffset(0)]
-        [NativeTypeName("gs_effect_param::(anonymous struct at ./obs-studio/libobs/graphics/effect.h:58:2)")]
+        [NativeTypeName("__AnonymousRecord_effect_L58_C2")]
         public _Anonymous_e__Struct Anonymous;
 
+        [UnscopedRef]
         public ref byte* array
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref this, 1)).Anonymous.array;
+                return ref Anonymous.array;
             }
         }
 
+        [UnscopedRef]
         public ref nuint num
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.num, 1));
+                return ref Anonymous.num;
             }
         }
 
+        [UnscopedRef]
         public ref nuint capacity
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.capacity, 1));
+                return ref Anonymous.capacity;
             }
         }
 
@@ -135,30 +142,33 @@ public unsafe partial struct gs_effect_param
         public darray da;
 
         [FieldOffset(0)]
-        [NativeTypeName("gs_effect_param::(anonymous struct at ./obs-studio/libobs/graphics/effect.h:65:2)")]
+        [NativeTypeName("__AnonymousRecord_effect_L65_C2")]
         public _Anonymous_e__Struct Anonymous;
 
+        [UnscopedRef]
         public ref gs_effect_param* array
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref this, 1)).Anonymous.array;
+                return ref Anonymous.array;
             }
         }
 
+        [UnscopedRef]
         public ref nuint num
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.num, 1));
+                return ref Anonymous.num;
             }
         }
 
+        [UnscopedRef]
         public ref nuint capacity
         {
             get
             {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous.capacity, 1));
+                return ref Anonymous.capacity;
             }
         }
 
