@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build (Debug)",
+      "command": "dotnet",
+      "type": "process",
+      "options": {
+        "cwd": "${workspaceFolder}/NetObsBindings"
+      },
+      "args": [
+        "build",
+        "-c",
+        "Debug"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "build (Release)",
+      "command": "dotnet",
+      "type": "process",
+      "options": {
+        "cwd": "${workspaceFolder}/NetObsBindings"
+      },
+      "args": [
+        "build",
+        "-c",
+        "Release"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Generate C# bindings",
+      "type": "shell",
+      "command": ".\\build.ps1"
+    }
+  ]
+}
