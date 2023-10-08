@@ -19,7 +19,11 @@ function Get-ObsClassName {
 
 $config = "multi-file", "generate-file-scoped-namespaces", "generate-helper-types", "exclude-funcs-with-body", "generate-macro-bindings", "latest-codegen"
 $replacements = "vec2=@System.Numerics.Vector2", "vec3=@System.Numerics.Vector3", "vec4=@System.Numerics.Vector4", "half=@Half", "__m128=@System.Runtime.Intrinsics.Vector128<Single>", "quat=@System.Numerics.Quaternion", "_iobuf*=@nint","stat*=@nint"
-$excludes = "blogva", "blog", "ARCH_BITS"
+$excludes = @(
+    "blogva", "blog", <# this method uses __arglist (variable argument list in C) but it is not fully supported in .NET (e.g. on Linux it just crashes) #>
+    "ARCH_BITS", <# manually implemented for .NET #>
+    "S__LINE__", "INT_CUR_LINE", "FILE_LINE" <# macroses for line and file in C, doesnt't work well in C# #>
+    )
 
 $obsModuleTracersals = @(
     ".\obs-studio\libobs\obs-source.h",
