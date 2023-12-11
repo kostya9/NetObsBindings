@@ -6,4 +6,5 @@ public enum obs_combo_format
     OBS_COMBO_FORMAT_INT,
     OBS_COMBO_FORMAT_FLOAT,
     OBS_COMBO_FORMAT_STRING,
+    OBS_COMBO_FORMAT_BOOL,
 }

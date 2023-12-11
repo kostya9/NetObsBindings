@@ -867,6 +867,10 @@ public static unsafe partial class ObsGraphics
     public static extern uint gs_get_adapter_count();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte gs_can_adapter_fast_clear();
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_texture_t *")]
     public static extern gs_texture* gs_texture_create_gdi([NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height);
 

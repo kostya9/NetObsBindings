@@ -14,7 +14,7 @@ public unsafe partial struct gs_effect_technique
     [NativeTypeName("struct gs_effect *")]
     public gs_effect* effect;
 
-    [NativeTypeName("__AnonymousRecord_effect_L130_C2")]
+    [NativeTypeName("__AnonymousRecord_effect_L133_C2")]
     public _passes_e__Union passes;
 
     [StructLayout(LayoutKind.Explicit)]
@@ -25,7 +25,7 @@ public unsafe partial struct gs_effect_technique
         public darray da;
 
         [FieldOffset(0)]
-        [NativeTypeName("__AnonymousRecord_effect_L130_C2")]
+        [NativeTypeName("__AnonymousRecord_effect_L133_C2")]
         public _Anonymous_e__Struct Anonymous;
 
         [UnscopedRef]

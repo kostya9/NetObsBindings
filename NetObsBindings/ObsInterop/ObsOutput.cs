@@ -28,6 +28,18 @@ public static unsafe partial class ObsOutput
     [NativeTypeName("#define OBS_OUTPUT_CAN_PAUSE (1 << 5)")]
     public const int OBS_OUTPUT_CAN_PAUSE = (1 << 5);
 
+    [NativeTypeName("#define OBS_OUTPUT_MULTI_TRACK_AUDIO OBS_OUTPUT_MULTI_TRACK")]
+    public const int OBS_OUTPUT_MULTI_TRACK_AUDIO = (1 << 4);
+
+    [NativeTypeName("#define OBS_OUTPUT_MULTI_TRACK_VIDEO (1 << 6)")]
+    public const int OBS_OUTPUT_MULTI_TRACK_VIDEO = (1 << 6);
+
+    [NativeTypeName("#define OBS_OUTPUT_MULTI_TRACK_AV (OBS_OUTPUT_MULTI_TRACK_AUDIO | OBS_OUTPUT_MULTI_TRACK_VIDEO)")]
+    public const int OBS_OUTPUT_MULTI_TRACK_AV = ((1 << 4) | (1 << 6));
+
     [NativeTypeName("#define MAX_OUTPUT_AUDIO_ENCODERS 6")]
     public const int MAX_OUTPUT_AUDIO_ENCODERS = 6;
+
+    [NativeTypeName("#define MAX_OUTPUT_VIDEO_ENCODERS 6")]
+    public const int MAX_OUTPUT_VIDEO_ENCODERS = 6;
 }

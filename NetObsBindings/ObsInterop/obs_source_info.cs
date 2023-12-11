@@ -153,4 +153,7 @@ public unsafe partial struct obs_source_info
 
     [NativeTypeName("enum gs_color_space (*)(void *, size_t, const enum gs_color_space *)")]
     public delegate* unmanaged[Cdecl]<void*, nuint, gs_color_space*, gs_color_space> video_get_color_space;
+
+    [NativeTypeName("void (*)(void *, obs_source_t *)")]
+    public delegate* unmanaged[Cdecl]<void*, obs_source*, void> filter_add;
 }

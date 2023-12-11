@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.InteropServices;
 
 namespace ObsInterop;
@@ -98,7 +99,19 @@ public static unsafe partial class ObsFrontendApi
     public static extern void obs_frontend_add_tools_menu_item([NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_frontend_cb")] delegate* unmanaged[Cdecl]<void*, void> callback, void* private_data);
 
     [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void* obs_frontend_add_dock(void* dock);
+
+    [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_frontend_add_dock_by_id([NativeTypeName("const char *")] sbyte* id, [NativeTypeName("const char *")] sbyte* title, void* widget);
+
+    [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_frontend_remove_dock([NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_frontend_add_custom_qdock([NativeTypeName("const char *")] sbyte* id, void* dock);
 
     [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_frontend_add_event_callback([NativeTypeName("obs_frontend_event_cb")] delegate* unmanaged[Cdecl]<obs_frontend_event, void*, void> callback, void* private_data);

@@ -27,4 +27,5 @@ public enum video_format
     VIDEO_FORMAT_P216,
     VIDEO_FORMAT_P416,
     VIDEO_FORMAT_V210,
+    VIDEO_FORMAT_R10L,
 }

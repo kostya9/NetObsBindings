@@ -27,6 +27,10 @@ public static unsafe partial class ObsVideo
     public static extern byte video_output_connect([NativeTypeName("video_t *")] video_output* video, [NativeTypeName("const struct video_scale_info *")] video_scale_info* conversion, [NativeTypeName("void (*)(void *, struct video_data *)")] delegate* unmanaged[Cdecl]<void*, video_data*, void> callback, void* param3);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte video_output_connect2([NativeTypeName("video_t *")] video_output* video, [NativeTypeName("const struct video_scale_info *")] video_scale_info* conversion, [NativeTypeName("uint32_t")] uint frame_rate_divisor, [NativeTypeName("void (*)(void *, struct video_data *)")] delegate* unmanaged[Cdecl]<void*, video_data*, void> callback, void* param4);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void video_output_disconnect([NativeTypeName("video_t *")] video_output* video, [NativeTypeName("void (*)(void *, struct video_data *)")] delegate* unmanaged[Cdecl]<void*, video_data*, void> callback, void* param2);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -89,6 +93,13 @@ public static unsafe partial class ObsVideo
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void video_output_inc_texture_skipped_frames([NativeTypeName("video_t *")] video_output* video);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("video_t *")]
+    public static extern video_output* video_output_create_with_frame_rate_divisor([NativeTypeName("video_t *")] video_output* video, [NativeTypeName("uint32_t")] uint divisor);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void video_output_free_frame_rate_divisor([NativeTypeName("video_t *")] video_output* video);
 
     [NativeTypeName("#define VIDEO_OUTPUT_SUCCESS 0")]
     public const int VIDEO_OUTPUT_SUCCESS = 0;

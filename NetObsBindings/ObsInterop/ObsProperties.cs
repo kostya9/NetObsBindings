@@ -278,6 +278,10 @@ public static unsafe partial class ObsProperties
     public static extern nuint obs_property_list_add_float([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("const char *")] sbyte* name, double val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("size_t")]
+    public static extern nuint obs_property_list_add_bool([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("bool")] byte val);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_property_list_insert_string([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("size_t")] nuint idx, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const char *")] sbyte* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -285,6 +289,9 @@ public static unsafe partial class ObsProperties
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_property_list_insert_float([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("size_t")] nuint idx, [NativeTypeName("const char *")] sbyte* name, double val);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_property_list_insert_bool([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("size_t")] nuint idx, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("bool")] byte val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_property_list_item_disable([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("size_t")] nuint idx, [NativeTypeName("bool")] byte disabled);
@@ -314,6 +321,10 @@ public static unsafe partial class ObsProperties
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern double obs_property_list_item_float([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("size_t")] nuint idx);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_property_list_item_bool([NativeTypeName("obs_property_t *")] obs_property* p, [NativeTypeName("size_t")] nuint idx);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("enum obs_editable_list_type")]

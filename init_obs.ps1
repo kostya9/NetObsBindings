@@ -1,5 +1,5 @@
 $BeforeLocation = Get-Location
-$GitTag = "release/29.1"
+$GitTag = "release/30.0"
 
 try {
     $ObsFolder = './obs-studio'
