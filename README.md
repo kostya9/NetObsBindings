@@ -36,7 +36,8 @@ This script will:
 2. Generate bindings for all required modules
 3. Insert the version of the OBS library to [Obs.Version.cs](https://github.com/kostya9/NetObsBindings/blob/main/NetObsBindings/Obs.Version.cs) file.
 
-NB: to change the OBS version - modify the $GitTag variable in the ./init_obs.ps1 script
+NB: to change the OBS version - modify the $GitTag variable in the ./init_obs.ps1 script. Also please update the package version to indicate the OBS version that it is generated from.
+E.g. 30.0.2.0 means that the bindings were generated from the OBS version 30.0.2.
 
 ---
 
