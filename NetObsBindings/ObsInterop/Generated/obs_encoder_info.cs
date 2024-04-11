@@ -63,4 +63,7 @@ public unsafe partial struct obs_encoder_info
 
     [NativeTypeName("bool (*)(void *, uint32_t, int64_t, uint64_t, uint64_t *, struct encoder_packet *, bool *)")]
     public delegate* unmanaged[Cdecl]<void*, uint, long, ulong, ulong*, encoder_packet*, bool*, byte> encode_texture;
+
+    [NativeTypeName("bool (*)(void *, struct encoder_texture *, int64_t, uint64_t, uint64_t *, struct encoder_packet *, bool *)")]
+    public delegate* unmanaged[Cdecl]<void*, encoder_texture*, long, ulong, ulong*, encoder_packet*, bool*, byte> encode_texture2;
 }

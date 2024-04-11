@@ -47,6 +47,9 @@ public static unsafe partial class ObsAudio
     [NativeTypeName("#define MAX_AUDIO_CHANNELS 8")]
     public const int MAX_AUDIO_CHANNELS = 8;
 
+    [NativeTypeName("#define MAX_DEVICE_INPUT_CHANNELS 64")]
+    public const int MAX_DEVICE_INPUT_CHANNELS = 64;
+
     [NativeTypeName("#define AUDIO_OUTPUT_FRAMES 1024")]
     public const int AUDIO_OUTPUT_FRAMES = 1024;
 

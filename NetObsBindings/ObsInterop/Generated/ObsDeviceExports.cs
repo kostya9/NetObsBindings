@@ -13,7 +13,7 @@ public static unsafe partial class ObsDeviceExports
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
-    public static extern byte device_enum_adapters([NativeTypeName("bool (*)(void *, const char *, uint32_t)")] delegate* unmanaged[Cdecl]<void*, sbyte*, uint, byte> callback, void* param1);
+    public static extern byte device_enum_adapters([NativeTypeName("gs_device_t *")] gs_device* device, [NativeTypeName("bool (*)(void *, const char *, uint32_t)")] delegate* unmanaged[Cdecl]<void*, sbyte*, uint, byte> callback, void* param2);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const char *")]

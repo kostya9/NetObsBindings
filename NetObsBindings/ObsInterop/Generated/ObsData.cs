@@ -115,6 +115,9 @@ public static unsafe partial class ObsData
     public static extern void obs_data_set_autoselect_obj([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_data_t *")] obs_data* obj);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_data_set_autoselect_array([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_data_array_t *")] obs_data_array* arr);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const char *")]
     public static extern sbyte* obs_data_get_string([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name);
 

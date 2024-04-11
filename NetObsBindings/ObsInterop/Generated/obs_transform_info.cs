@@ -21,4 +21,7 @@ public partial struct obs_transform_info
 
     [NativeTypeName("struct vec2")]
     public System.Numerics.Vector2 bounds;
+
+    [NativeTypeName("bool")]
+    public byte crop_to_bounds;
 }
