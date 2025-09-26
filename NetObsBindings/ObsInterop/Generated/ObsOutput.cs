@@ -40,6 +40,6 @@ public static unsafe partial class ObsOutput
     [NativeTypeName("#define MAX_OUTPUT_AUDIO_ENCODERS 6")]
     public const int MAX_OUTPUT_AUDIO_ENCODERS = 6;
 
-    [NativeTypeName("#define MAX_OUTPUT_VIDEO_ENCODERS 6")]
-    public const int MAX_OUTPUT_VIDEO_ENCODERS = 6;
+    [NativeTypeName("#define MAX_OUTPUT_VIDEO_ENCODERS 10")]
+    public const int MAX_OUTPUT_VIDEO_ENCODERS = 10;
 }

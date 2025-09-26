@@ -1,12 +1,14 @@
+using System.Runtime.CompilerServices;
+
 namespace ObsInterop;
 
-public unsafe partial struct video_data
+public partial struct video_data
 {
     [NativeTypeName("uint8_t *[8]")]
     public _data_e__FixedBuffer data;
 
     [NativeTypeName("uint32_t[8]")]
-    public fixed uint linesize[8];
+    public _linesize_e__FixedBuffer linesize;
 
     [NativeTypeName("uint64_t")]
     public ulong timestamp;
@@ -32,5 +34,11 @@ public unsafe partial struct video_data
                 }
             }
         }
+    }
+
+    [InlineArray(8)]
+    public partial struct _linesize_e__FixedBuffer
+    {
+        public uint e0;
     }
 }

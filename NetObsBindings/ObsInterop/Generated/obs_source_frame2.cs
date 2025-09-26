@@ -1,12 +1,14 @@
+using System.Runtime.CompilerServices;
+
 namespace ObsInterop;
 
-public unsafe partial struct obs_source_frame2
+public partial struct obs_source_frame2
 {
     [NativeTypeName("uint8_t *[8]")]
     public _data_e__FixedBuffer data;
 
     [NativeTypeName("uint32_t[8]")]
-    public fixed uint linesize[8];
+    public _linesize_e__FixedBuffer linesize;
 
     [NativeTypeName("uint32_t")]
     public uint width;
@@ -24,13 +26,13 @@ public unsafe partial struct obs_source_frame2
     public video_range_type range;
 
     [NativeTypeName("float[16]")]
-    public fixed float color_matrix[16];
+    public _color_matrix_e__FixedBuffer color_matrix;
 
     [NativeTypeName("float[3]")]
-    public fixed float color_range_min[3];
+    public _color_range_min_e__FixedBuffer color_range_min;
 
     [NativeTypeName("float[3]")]
-    public fixed float color_range_max[3];
+    public _color_range_max_e__FixedBuffer color_range_max;
 
     [NativeTypeName("bool")]
     public byte flip;
@@ -62,5 +64,29 @@ public unsafe partial struct obs_source_frame2
                 }
             }
         }
+    }
+
+    [InlineArray(8)]
+    public partial struct _linesize_e__FixedBuffer
+    {
+        public uint e0;
+    }
+
+    [InlineArray(16)]
+    public partial struct _color_matrix_e__FixedBuffer
+    {
+        public float e0;
+    }
+
+    [InlineArray(3)]
+    public partial struct _color_range_min_e__FixedBuffer
+    {
+        public float e0;
+    }
+
+    [InlineArray(3)]
+    public partial struct _color_range_max_e__FixedBuffer
+    {
+        public float e0;
     }
 }

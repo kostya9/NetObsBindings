@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>Library</OutputType>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
@@ -13,7 +13,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <PackageVersion>30.1.2.0</PackageVersion>
+        <PackageVersion>32.0.0.0</PackageVersion>
 
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <ProjectUrl>https://github.com/kostya9/NetObsBindings</ProjectUrl>

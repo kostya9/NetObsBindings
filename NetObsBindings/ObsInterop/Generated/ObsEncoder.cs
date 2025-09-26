@@ -21,4 +21,7 @@ public static unsafe partial class ObsEncoder
 
     [NativeTypeName("#define OBS_ENCODER_CAP_ROI (1 << 4)")]
     public const int OBS_ENCODER_CAP_ROI = (1 << 4);
+
+    [NativeTypeName("#define OBS_ENCODER_CAP_SCALING (1 << 5)")]
+    public const int OBS_ENCODER_CAP_SCALING = (1 << 5);
 }

@@ -19,7 +19,7 @@ public unsafe partial struct gs_effect
 
     public gs_effect_param_array_t @params;
 
-    [NativeTypeName("__AnonymousRecord_effect_L159_C2")]
+    [NativeTypeName("__AnonymousRecord_effect_L152_C2")]
     public _techniques_e__Union techniques;
 
     [NativeTypeName("struct gs_effect_technique *")]
@@ -57,7 +57,7 @@ public unsafe partial struct gs_effect
         public darray da;
 
         [FieldOffset(0)]
-        [NativeTypeName("__AnonymousRecord_effect_L159_C2")]
+        [NativeTypeName("__AnonymousRecord_effect_L152_C2")]
         public _Anonymous_e__Struct Anonymous;
 
         [UnscopedRef]

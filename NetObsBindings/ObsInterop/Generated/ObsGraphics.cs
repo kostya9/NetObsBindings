@@ -231,6 +231,22 @@ public static unsafe partial class ObsGraphics
     public static extern sbyte* gs_get_device_name();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("const char *")]
+    public static extern sbyte* gs_get_driver_version();
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("const char *")]
+    public static extern sbyte* gs_get_renderer();
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("uint64_t")]
+    public static extern ulong gs_get_gpu_dmem();
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("uint64_t")]
+    public static extern ulong gs_get_gpu_smem();
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int gs_get_device_type();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -383,6 +399,9 @@ public static unsafe partial class ObsGraphics
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_draw_sprite([NativeTypeName("gs_texture_t *")] gs_texture* tex, [NativeTypeName("uint32_t")] uint flip, [NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void gs_draw_quadf([NativeTypeName("gs_texture_t *")] gs_texture* tex, [NativeTypeName("uint32_t")] uint flip, float width, float height);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void gs_draw_sprite_subregion([NativeTypeName("gs_texture_t *")] gs_texture* tex, [NativeTypeName("uint32_t")] uint flip, [NativeTypeName("uint32_t")] uint x, [NativeTypeName("uint32_t")] uint y, [NativeTypeName("uint32_t")] uint cx, [NativeTypeName("uint32_t")] uint cy);
@@ -965,6 +984,9 @@ public static unsafe partial class ObsGraphics
 
     [NativeTypeName("#define GS_DEVICE_DIRECT3D_11 2")]
     public const int GS_DEVICE_DIRECT3D_11 = 2;
+
+    [NativeTypeName("#define GS_DEVICE_METAL 3")]
+    public const int GS_DEVICE_METAL = 3;
 
     [NativeTypeName("#define GS_FLIP_U (1 << 0)")]
     public const int GS_FLIP_U = (1 << 0);

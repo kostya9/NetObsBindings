@@ -1,10 +1,11 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace ObsInterop;
 
-public unsafe partial struct axisang
+public partial struct axisang
 {
     [NativeTypeName("__AnonymousRecord_axisang_L29_C2")]
     public _Anonymous_e__Union Anonymous;
@@ -50,12 +51,12 @@ public unsafe partial struct axisang
     {
         get
         {
-            return MemoryMarshal.CreateSpan(ref Anonymous.ptr[0], 4);
+            return Anonymous.ptr;
         }
     }
 
     [StructLayout(LayoutKind.Explicit)]
-    public unsafe partial struct _Anonymous_e__Union
+    public partial struct _Anonymous_e__Union
     {
         [FieldOffset(0)]
         [NativeTypeName("__AnonymousRecord_axisang_L30_C3")]
@@ -63,7 +64,7 @@ public unsafe partial struct axisang
 
         [FieldOffset(0)]
         [NativeTypeName("float[4]")]
-        public fixed float ptr[4];
+        public _ptr_e__FixedBuffer ptr;
 
         public partial struct _Anonymous_e__Struct
         {
@@ -74,6 +75,12 @@ public unsafe partial struct axisang
             public float z;
 
             public float w;
+        }
+
+        [InlineArray(4)]
+        public partial struct _ptr_e__FixedBuffer
+        {
+            public float e0;
         }
     }
 }

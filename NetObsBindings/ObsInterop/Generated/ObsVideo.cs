@@ -35,6 +35,10 @@ public static unsafe partial class ObsVideo
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
+    public static extern byte video_output_disconnect2([NativeTypeName("video_t *")] video_output* video, [NativeTypeName("void (*)(void *, struct video_data *)")] delegate* unmanaged[Cdecl]<void*, video_data*, void> callback, void* param2);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
     public static extern byte video_output_active([NativeTypeName("const video_t *")] video_output* video);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]

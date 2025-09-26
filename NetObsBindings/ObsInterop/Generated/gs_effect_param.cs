@@ -17,10 +17,10 @@ public unsafe partial struct gs_effect_param
     [NativeTypeName("bool")]
     public byte changed;
 
-    [NativeTypeName("__AnonymousRecord_effect_L60_C2")]
+    [NativeTypeName("__AnonymousRecord_effect_L54_C2")]
     public _cur_val_e__Union cur_val;
 
-    [NativeTypeName("__AnonymousRecord_effect_L61_C2")]
+    [NativeTypeName("__AnonymousRecord_effect_L55_C2")]
     public _default_val_e__Union default_val;
 
     [NativeTypeName("gs_effect_t *")]
@@ -39,7 +39,7 @@ public unsafe partial struct gs_effect_param
         public darray da;
 
         [FieldOffset(0)]
-        [NativeTypeName("__AnonymousRecord_effect_L60_C2")]
+        [NativeTypeName("__AnonymousRecord_effect_L54_C2")]
         public _Anonymous_e__Struct Anonymous;
 
         [UnscopedRef]
@@ -90,7 +90,7 @@ public unsafe partial struct gs_effect_param
         public darray da;
 
         [FieldOffset(0)]
-        [NativeTypeName("__AnonymousRecord_effect_L61_C2")]
+        [NativeTypeName("__AnonymousRecord_effect_L55_C2")]
         public _Anonymous_e__Struct Anonymous;
 
         [UnscopedRef]

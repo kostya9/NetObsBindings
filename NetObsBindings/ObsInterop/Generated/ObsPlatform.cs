@@ -259,6 +259,9 @@ public static unsafe partial class ObsPlatform
     public static extern void os_breakpoint();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void os_oom();
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int os_get_physical_cores();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -287,6 +290,10 @@ public static unsafe partial class ObsPlatform
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("char *")]
     public static extern sbyte* os_generate_uuid();
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("struct timespec *")]
+    public static extern timespec* os_nstime_to_timespec([NativeTypeName("uint64_t")] ulong timestamp, [NativeTypeName("struct timespec *")] timespec* storage);
 
     [NativeTypeName("#define MKDIR_EXISTS 1")]
     public const int MKDIR_EXISTS = 1;

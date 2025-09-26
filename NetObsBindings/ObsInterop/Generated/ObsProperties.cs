@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.InteropServices;
 
 namespace ObsInterop;
@@ -400,11 +399,6 @@ public static unsafe partial class ObsProperties
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const char *")]
     public static extern sbyte* obs_property_button_url([NativeTypeName("obs_property_t *")] obs_property* p);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("enum obs_text_type")]
-    [Obsolete]
-    public static extern obs_text_type obs_proprety_text_type([NativeTypeName("obs_property_t *")] obs_property* p);
 
     [NativeTypeName("#define OBS_PROPERTIES_DEFER_UPDATE (1 << 0)")]
     public const int OBS_PROPERTIES_DEFER_UPDATE = (1 << 0);

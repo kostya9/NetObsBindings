@@ -11,7 +11,7 @@ public unsafe partial struct profiler_time_entries_t
     public darray da;
 
     [FieldOffset(0)]
-    [NativeTypeName("__AnonymousRecord_profiler_L64_C9")]
+    [NativeTypeName("__AnonymousRecord_profiler_L62_C9")]
     public _Anonymous_e__Struct Anonymous;
 
     [UnscopedRef]

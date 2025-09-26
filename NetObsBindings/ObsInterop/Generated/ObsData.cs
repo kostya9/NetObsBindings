@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.InteropServices;
 
 namespace ObsInterop;
@@ -32,7 +33,15 @@ public static unsafe partial class ObsData
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const char *")]
+    public static extern sbyte* obs_data_get_json_with_defaults([NativeTypeName("obs_data_t *")] obs_data* data);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("const char *")]
     public static extern sbyte* obs_data_get_json_pretty([NativeTypeName("obs_data_t *")] obs_data* data);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("const char *")]
+    public static extern sbyte* obs_data_get_json_pretty_with_defaults([NativeTypeName("obs_data_t *")] obs_data* data);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const char *")]
@@ -100,21 +109,27 @@ public static unsafe partial class ObsData
     public static extern void obs_data_set_default_array([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_data_array_t *")] obs_data_array* arr);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_set_autoselect_string([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const char *")] sbyte* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_set_autoselect_int([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("long long")] long val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_set_autoselect_double([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, double val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_set_autoselect_bool([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("bool")] byte val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_set_autoselect_obj([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_data_t *")] obs_data* obj);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_set_autoselect_array([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_data_array_t *")] obs_data_array* arr);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -165,25 +180,31 @@ public static unsafe partial class ObsData
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const char *")]
+    [Obsolete]
     public static extern sbyte* obs_data_get_autoselect_string([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("long long")]
+    [Obsolete]
     public static extern long obs_data_get_autoselect_int([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern double obs_data_get_autoselect_double([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
+    [Obsolete]
     public static extern byte obs_data_get_autoselect_bool([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_data_t *")]
+    [Obsolete]
     public static extern obs_data* obs_data_get_autoselect_obj([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_data_array_t *")]
+    [Obsolete]
     public static extern obs_data_array* obs_data_get_autoselect_array([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -230,6 +251,7 @@ public static unsafe partial class ObsData
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
+    [Obsolete]
     public static extern byte obs_data_has_autoselect_value([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -242,6 +264,7 @@ public static unsafe partial class ObsData
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
+    [Obsolete]
     public static extern byte obs_data_item_has_autoselect_value([NativeTypeName("obs_data_item_t *")] obs_data_item* data);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -251,6 +274,7 @@ public static unsafe partial class ObsData
     public static extern void obs_data_unset_default_value([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_unset_autoselect_value([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -260,6 +284,7 @@ public static unsafe partial class ObsData
     public static extern void obs_data_item_unset_default_value([NativeTypeName("obs_data_item_t *")] obs_data_item* data);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_item_unset_autoselect_value([NativeTypeName("obs_data_item_t *")] obs_data_item* data);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -329,21 +354,27 @@ public static unsafe partial class ObsData
     public static extern void obs_data_item_set_default_array([NativeTypeName("obs_data_item_t **")] obs_data_item** item, [NativeTypeName("obs_data_array_t *")] obs_data_array* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_item_set_autoselect_string([NativeTypeName("obs_data_item_t **")] obs_data_item** item, [NativeTypeName("const char *")] sbyte* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_item_set_autoselect_int([NativeTypeName("obs_data_item_t **")] obs_data_item** item, [NativeTypeName("long long")] long val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_item_set_autoselect_double([NativeTypeName("obs_data_item_t **")] obs_data_item** item, double val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_item_set_autoselect_bool([NativeTypeName("obs_data_item_t **")] obs_data_item** item, [NativeTypeName("bool")] byte val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_item_set_autoselect_obj([NativeTypeName("obs_data_item_t **")] obs_data_item** item, [NativeTypeName("obs_data_t *")] obs_data* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_item_set_autoselect_array([NativeTypeName("obs_data_item_t **")] obs_data_item** item, [NativeTypeName("obs_data_array_t *")] obs_data_array* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -394,25 +425,31 @@ public static unsafe partial class ObsData
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const char *")]
+    [Obsolete]
     public static extern sbyte* obs_data_item_get_autoselect_string([NativeTypeName("obs_data_item_t *")] obs_data_item* item);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("long long")]
+    [Obsolete]
     public static extern long obs_data_item_get_autoselect_int([NativeTypeName("obs_data_item_t *")] obs_data_item* item);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern double obs_data_item_get_autoselect_double([NativeTypeName("obs_data_item_t *")] obs_data_item* item);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
+    [Obsolete]
     public static extern byte obs_data_item_get_autoselect_bool([NativeTypeName("obs_data_item_t *")] obs_data_item* item);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_data_t *")]
+    [Obsolete]
     public static extern obs_data* obs_data_item_get_autoselect_obj([NativeTypeName("obs_data_item_t *")] obs_data_item* item);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_data_array_t *")]
+    [Obsolete]
     public static extern obs_data_array* obs_data_item_get_autoselect_array([NativeTypeName("obs_data_item_t *")] obs_data_item* item);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -440,15 +477,19 @@ public static unsafe partial class ObsData
     public static extern void obs_data_set_default_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct quat *")] System.Numerics.Quaternion* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_set_autoselect_vec2([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct vec2 *")] System.Numerics.Vector2* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_set_autoselect_vec3([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct vec3 *")] System.Numerics.Vector3* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_set_autoselect_vec4([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct vec4 *")] System.Numerics.Vector4* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_set_autoselect_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const struct quat *")] System.Numerics.Quaternion* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -476,15 +517,19 @@ public static unsafe partial class ObsData
     public static extern void obs_data_get_default_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct quat *")] System.Numerics.Quaternion* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_get_autoselect_vec2([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct vec2 *")] System.Numerics.Vector2* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_get_autoselect_vec3([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct vec3 *")] System.Numerics.Vector3* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_get_autoselect_vec4([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct vec4 *")] System.Numerics.Vector4* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_get_autoselect_quat([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct quat *")] System.Numerics.Quaternion* val);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -494,6 +539,7 @@ public static unsafe partial class ObsData
     public static extern void obs_data_set_default_frames_per_second([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct media_frames_per_second")] media_frames_per_second fps, [NativeTypeName("const char *")] sbyte* option);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_set_autoselect_frames_per_second([NativeTypeName("obs_data_t *")] obs_data* data, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct media_frames_per_second")] media_frames_per_second fps, [NativeTypeName("const char *")] sbyte* option);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -515,6 +561,7 @@ public static unsafe partial class ObsData
     public static extern void obs_data_item_set_default_frames_per_second([NativeTypeName("obs_data_item_t **")] obs_data_item** item, [NativeTypeName("struct media_frames_per_second")] media_frames_per_second fps, [NativeTypeName("const char *")] sbyte* option);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_data_item_set_autoselect_frames_per_second([NativeTypeName("obs_data_item_t **")] obs_data_item** item, [NativeTypeName("struct media_frames_per_second")] media_frames_per_second fps, [NativeTypeName("const char *")] sbyte* option);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -527,5 +574,6 @@ public static unsafe partial class ObsData
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
+    [Obsolete]
     public static extern byte obs_data_item_get_autoselect_frames_per_second([NativeTypeName("obs_data_item_t *")] obs_data_item* item, [NativeTypeName("struct media_frames_per_second *")] media_frames_per_second* fps, [NativeTypeName("const char **")] sbyte** option);
 }

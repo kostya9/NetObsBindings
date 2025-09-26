@@ -60,4 +60,7 @@ public static unsafe partial class ObsSource
 
     [NativeTypeName("#define OBS_SOURCE_CAP_DONT_SHOW_PROPERTIES (1 << 16)")]
     public const int OBS_SOURCE_CAP_DONT_SHOW_PROPERTIES = (1 << 16);
+
+    [NativeTypeName("#define OBS_SOURCE_REQUIRES_CANVAS (1 << 17)")]
+    public const int OBS_SOURCE_REQUIRES_CANVAS = (1 << 17);
 }

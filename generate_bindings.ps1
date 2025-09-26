@@ -157,7 +157,7 @@ foreach ($utilLibrary in $utilLibraries)
 
 ClangSharpPInvokeGenerator `
     -c $config `
-    --file .\obs-studio\UI\obs-frontend-api\obs-frontend-api.h <# file we want to generate bindings for #>  `
+    --file .\obs-studio\frontend\api\obs-frontend-api.h <# file we want to generate bindings for #>  `
     --file .\obs-studio\libobs\util\darray.h  `
     --include-directory .\obs-studio\libobs `
     --include-directory .\obs-studio\libobs\util `

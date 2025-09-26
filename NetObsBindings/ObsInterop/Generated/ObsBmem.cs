@@ -1,14 +1,9 @@
-using System;
 using System.Runtime.InteropServices;
 
 namespace ObsInterop;
 
 public static unsafe partial class ObsBmem
 {
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void base_set_allocator([NativeTypeName("struct base_allocator *")] base_allocator* defs);
-
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void* bmalloc([NativeTypeName("size_t")] nuint size);
 

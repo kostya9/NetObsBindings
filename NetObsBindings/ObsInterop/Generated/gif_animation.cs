@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace ObsInterop;
 
 public unsafe partial struct gif_animation
@@ -57,16 +59,16 @@ public unsafe partial struct gif_animation
     public uint* local_colour_table;
 
     [NativeTypeName("unsigned char[4]")]
-    public fixed byte buf[4];
+    public _buf_e__FixedBuffer buf;
 
     [NativeTypeName("unsigned char *")]
     public byte* direct;
 
     [NativeTypeName("int[2][4096]")]
-    public fixed int table[2 * 4096];
+    public _table_e__FixedBuffer table;
 
     [NativeTypeName("unsigned char[8192]")]
-    public fixed byte stack[8192];
+    public _stack_e__FixedBuffer stack;
 
     [NativeTypeName("unsigned char *")]
     public byte* stack_pointer;
@@ -101,4 +103,22 @@ public unsafe partial struct gif_animation
 
     [NativeTypeName("bool")]
     public byte clear_image;
+
+    [InlineArray(4)]
+    public partial struct _buf_e__FixedBuffer
+    {
+        public byte e0;
+    }
+
+    [InlineArray(2 * 4096)]
+    public partial struct _table_e__FixedBuffer
+    {
+        public int e0_0;
+    }
+
+    [InlineArray(8192)]
+    public partial struct _stack_e__FixedBuffer
+    {
+        public byte e0;
+    }
 }

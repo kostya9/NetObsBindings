@@ -99,10 +99,6 @@ public static unsafe partial class ObsFrontendApi
     public static extern void obs_frontend_add_tools_menu_item([NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_frontend_cb")] delegate* unmanaged[Cdecl]<void*, void> callback, void* private_data);
 
     [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void* obs_frontend_add_dock(void* dock);
-
-    [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
     public static extern byte obs_frontend_add_dock_by_id([NativeTypeName("const char *")] sbyte* id, [NativeTypeName("const char *")] sbyte* title, void* widget);
 
@@ -169,6 +165,10 @@ public static unsafe partial class ObsFrontendApi
     public static extern byte obs_frontend_recording_split_file();
 
     [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_frontend_recording_add_chapter([NativeTypeName("const char *")] sbyte* name);
+
+    [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_frontend_replay_buffer_start();
 
     [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -211,7 +211,16 @@ public static unsafe partial class ObsFrontendApi
 
     [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("config_t *")]
+    [Obsolete]
     public static extern config_data* obs_frontend_get_global_config();
+
+    [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("config_t *")]
+    public static extern config_data* obs_frontend_get_app_config();
+
+    [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("config_t *")]
+    public static extern config_data* obs_frontend_get_user_config();
 
     [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_frontend_set_streaming_service([NativeTypeName("obs_service_t *")] obs_service* service);
@@ -308,6 +317,17 @@ public static unsafe partial class ObsFrontendApi
 
     [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_frontend_add_undo_redo_action([NativeTypeName("const char *")] sbyte* name, [NativeTypeName("const undo_redo_cb")] delegate* unmanaged[Cdecl]<sbyte*, void> undo, [NativeTypeName("const undo_redo_cb")] delegate* unmanaged[Cdecl]<sbyte*, void> redo, [NativeTypeName("const char *")] sbyte* undo_data, [NativeTypeName("const char *")] sbyte* redo_data, [NativeTypeName("bool")] byte repeatable);
+
+    [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_frontend_get_canvases([NativeTypeName("struct obs_frontend_canvas_list *")] obs_frontend_canvas_list* canvas_list);
+
+    [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_canvas_t *")]
+    public static extern obs_canvas* obs_frontend_add_canvas([NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct obs_video_info *")] obs_video_info* ovi, int flags);
+
+    [DllImport("obs-frontend-api", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_frontend_remove_canvas([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas);
 
     [NativeTypeName("#define DARRAY_INVALID ((size_t)-1)")]
     public static readonly nuint DARRAY_INVALID = unchecked((nuint)(-1));

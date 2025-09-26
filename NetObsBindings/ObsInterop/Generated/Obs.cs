@@ -10,10 +10,12 @@ public static unsafe partial class Obs
     public static extern sbyte* obs_find_data_file([NativeTypeName("const char *")] sbyte* file);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [Obsolete]
     public static extern void obs_add_data_path([NativeTypeName("const char *")] sbyte* path);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
+    [Obsolete]
     public static extern byte obs_remove_data_path([NativeTypeName("const char *")] sbyte* path);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -85,7 +87,15 @@ public static unsafe partial class Obs
     public static extern byte obs_get_audio_info([NativeTypeName("struct obs_audio_info *")] obs_audio_info* oai);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_get_audio_info2([NativeTypeName("struct obs_audio_info2 *")] obs_audio_info2* oai2);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int obs_open_module([NativeTypeName("obs_module_t **")] obs_module** module, [NativeTypeName("const char *")] sbyte* path, [NativeTypeName("const char *")] sbyte* data_path);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_create_disabled_module([NativeTypeName("obs_module_t **")] obs_module** module, [NativeTypeName("const char *")] sbyte* path, [NativeTypeName("const char *")] sbyte* data_path, [NativeTypeName("enum obs_module_load_state")] obs_module_load_state state);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
@@ -94,6 +104,10 @@ public static unsafe partial class Obs
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_module_t *")]
     public static extern obs_module* obs_get_module([NativeTypeName("const char *")] sbyte* name);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_module_t *")]
+    public static extern obs_module* obs_get_disabled_module([NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void* obs_get_module_lib([NativeTypeName("obs_module_t *")] obs_module* module);
@@ -134,10 +148,25 @@ public static unsafe partial class Obs
     public static extern sbyte* obs_get_module_data_path([NativeTypeName("obs_module_t *")] obs_module* module);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_module_add_source([NativeTypeName("obs_module_t *")] obs_module* module, [NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_module_add_output([NativeTypeName("obs_module_t *")] obs_module* module, [NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_module_add_encoder([NativeTypeName("obs_module_t *")] obs_module* module, [NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_module_add_service([NativeTypeName("obs_module_t *")] obs_module* module, [NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_add_module_path([NativeTypeName("const char *")] sbyte* bin, [NativeTypeName("const char *")] sbyte* data);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_add_safe_module([NativeTypeName("const char *")] sbyte* name);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_add_core_module([NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_load_all_modules();
@@ -167,6 +196,13 @@ public static unsafe partial class Obs
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("char *")]
     public static extern sbyte* obs_find_module_file([NativeTypeName("obs_module_t *")] obs_module* module, [NativeTypeName("const char *")] sbyte* file);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_add_disabled_module([NativeTypeName("const char *")] sbyte* name);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_get_module_allow_disable([NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("char *")]
@@ -252,6 +288,9 @@ public static unsafe partial class Obs
     public static extern void obs_enum_services([NativeTypeName("bool (*)(void *, obs_service_t *)")] delegate* unmanaged[Cdecl]<void*, obs_service*, byte> enum_proc, void* param1);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_enum_canvases([NativeTypeName("bool (*)(void *, obs_canvas_t *)")] delegate* unmanaged[Cdecl]<void*, obs_canvas*, byte> enum_proc, void* param1);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_source_t *")]
     public static extern obs_source* obs_get_source_by_name([NativeTypeName("const char *")] sbyte* name);
 
@@ -261,10 +300,12 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_source_t *")]
+    [Obsolete]
     public static extern obs_source* obs_get_transition_by_name([NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_source_t *")]
+    [Obsolete]
     public static extern obs_source* obs_get_transition_by_uuid([NativeTypeName("const char *")] sbyte* uuid);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -280,13 +321,16 @@ public static unsafe partial class Obs
     public static extern obs_service* obs_get_service_by_name([NativeTypeName("const char *")] sbyte* name);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("gs_effect_t *")]
-    public static extern gs_effect* obs_get_base_effect([NativeTypeName("enum obs_base_effect")] obs_base_effect effect);
+    [return: NativeTypeName("obs_canvas_t *")]
+    public static extern obs_canvas* obs_get_canvas_by_name([NativeTypeName("const char *")] sbyte* name);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_canvas_t *")]
+    public static extern obs_canvas* obs_get_canvas_by_uuid([NativeTypeName("const char *")] sbyte* uuid);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_effect_t *")]
-    [Obsolete]
-    public static extern gs_effect* obs_get_default_rect_effect();
+    public static extern gs_effect* obs_get_base_effect([NativeTypeName("enum obs_base_effect")] obs_base_effect effect);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("signal_handler_t *")]
@@ -297,26 +341,20 @@ public static unsafe partial class Obs
     public static extern proc_handler* obs_get_proc_handler();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_render_main_view();
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_render_main_texture();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_render_main_texture_src_color_only();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_render_canvas_texture([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_render_canvas_texture_src_color_only([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("gs_texture_t *")]
     public static extern gs_texture* obs_get_main_texture();
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_set_master_volume(float volume);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern float obs_get_master_volume();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_data_t *")]
@@ -447,10 +485,12 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
+    [Obsolete]
     public static extern byte obs_nv12_tex_active();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
+    [Obsolete]
     public static extern byte obs_p010_tex_active();
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -535,11 +575,6 @@ public static unsafe partial class Obs
     public static extern void obs_view_remove([NativeTypeName("obs_view_t *")] obs_view* view);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("bool")]
-    [Obsolete]
-    public static extern byte obs_view_get_video_info([NativeTypeName("obs_view_t *")] obs_view* view, [NativeTypeName("struct obs_video_info *")] obs_video_info* ovi);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_view_enum_video_info([NativeTypeName("obs_view_t *")] obs_view* view, [NativeTypeName("bool (*)(void *, struct obs_video_info *)")] delegate* unmanaged[Cdecl]<void*, obs_video_info*, byte> enum_proc, void* param2);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -579,6 +614,14 @@ public static unsafe partial class Obs
     public static extern sbyte* obs_source_get_display_name([NativeTypeName("const char *")] sbyte* id);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_module_t *")]
+    public static extern obs_module* obs_source_get_module([NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("enum obs_module_load_state")]
+    public static extern obs_module_load_state obs_source_load_state([NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_source_t *")]
     public static extern obs_source* obs_source_create([NativeTypeName("const char *")] sbyte* id, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_data_t *")] obs_data* settings, [NativeTypeName("obs_data_t *")] obs_data* hotkey_data);
 
@@ -589,10 +632,6 @@ public static unsafe partial class Obs
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_source_t *")]
     public static extern obs_source* obs_source_duplicate([NativeTypeName("obs_source_t *")] obs_source* source, [NativeTypeName("const char *")] sbyte* desired_name, [NativeTypeName("bool")] byte create_private);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_source_addref([NativeTypeName("obs_source_t *")] obs_source* source);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_source_release([NativeTypeName("obs_source_t *")] obs_source* source);
@@ -1105,6 +1144,10 @@ public static unsafe partial class Obs
     public static extern void obs_source_media_ended([NativeTypeName("obs_source_t *")] obs_source* source);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_canvas_t *")]
+    public static extern obs_canvas* obs_source_get_canvas([NativeTypeName("const obs_source_t *")] obs_source* source);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_source_t *")]
     public static extern obs_source* obs_transition_get_source([NativeTypeName("obs_source_t *")] obs_source* transition, [NativeTypeName("enum obs_transition_target")] obs_transition_target target);
 
@@ -1198,10 +1241,6 @@ public static unsafe partial class Obs
     public static extern obs_scene* obs_scene_duplicate([NativeTypeName("obs_scene_t *")] obs_scene* scene, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("enum obs_scene_duplicate_type")] obs_scene_duplicate_type type);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_scene_addref([NativeTypeName("obs_scene_t *")] obs_scene* scene);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_scene_release([NativeTypeName("obs_scene_t *")] obs_scene* scene);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -1244,6 +1283,10 @@ public static unsafe partial class Obs
     public static extern byte obs_source_is_scene([NativeTypeName("const obs_source_t *")] obs_source* source);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_source_type_is_scene([NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_sceneitem_t *")]
     public static extern obs_scene_item* obs_scene_add([NativeTypeName("obs_scene_t *")] obs_scene* scene, [NativeTypeName("obs_source_t *")] obs_source* source);
 
@@ -1267,10 +1310,6 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_sceneitem_set_id([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* sceneitem, [NativeTypeName("int64_t")] long id);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("obs_sceneitem_t *")]
-    public static extern obs_scene_item* obs_scene_sceneitem_from_source([NativeTypeName("obs_scene_t *")] obs_scene* scene, [NativeTypeName("obs_source_t *")] obs_source* source);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_data_t *")]
@@ -1366,14 +1405,6 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_sceneitem_get_bounds([NativeTypeName("const obs_sceneitem_t *")] obs_scene_item* item, [NativeTypeName("struct vec2 *")] System.Numerics.Vector2* bounds);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_sceneitem_get_info([NativeTypeName("const obs_sceneitem_t *")] obs_scene_item* item, [NativeTypeName("struct obs_transform_info *")] obs_transform_info* info);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_sceneitem_set_info([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* item, [NativeTypeName("const struct obs_transform_info *")] obs_transform_info* info);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_sceneitem_get_info2([NativeTypeName("const obs_sceneitem_t *")] obs_scene_item* item, [NativeTypeName("struct obs_transform_info *")] obs_transform_info* info);
@@ -1488,6 +1519,10 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("bool")]
+    public static extern byte obs_source_type_is_group([NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
     public static extern byte obs_scene_is_group([NativeTypeName("const obs_scene_t *")] obs_scene* scene);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -1502,40 +1537,6 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_sceneitem_defer_group_resize_end([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* item);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_sceneitem_set_show_transition([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* item, [NativeTypeName("obs_source_t *")] obs_source* transition);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void obs_sceneitem_set_show_transition_duration([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* item, [NativeTypeName("uint32_t")] uint duration_ms);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("obs_source_t *")]
-    [Obsolete]
-    public static extern obs_source* obs_sceneitem_get_show_transition([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* item);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("uint32_t")]
-    [Obsolete]
-    public static extern uint obs_sceneitem_get_show_transition_duration([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* item);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_sceneitem_set_hide_transition([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* item, [NativeTypeName("obs_source_t *")] obs_source* transition);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_sceneitem_set_hide_transition_duration([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* item, [NativeTypeName("uint32_t")] uint duration_ms);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("obs_source_t *")]
-    [Obsolete]
-    public static extern obs_source* obs_sceneitem_get_hide_transition([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* item);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("uint32_t")]
-    [Obsolete]
-    public static extern uint obs_sceneitem_get_hide_transition_duration([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* item);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_sceneitem_set_transition([NativeTypeName("obs_sceneitem_t *")] obs_scene_item* item, [NativeTypeName("bool")] byte show, [NativeTypeName("obs_source_t *")] obs_source* transition);
@@ -1569,12 +1570,16 @@ public static unsafe partial class Obs
     public static extern sbyte* obs_output_get_display_name([NativeTypeName("const char *")] sbyte* id);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("obs_output_t *")]
-    public static extern obs_output* obs_output_create([NativeTypeName("const char *")] sbyte* id, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_data_t *")] obs_data* settings, [NativeTypeName("obs_data_t *")] obs_data* hotkey_data);
+    [return: NativeTypeName("obs_module_t *")]
+    public static extern obs_module* obs_output_get_module([NativeTypeName("const char *")] sbyte* id);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_output_addref([NativeTypeName("obs_output_t *")] obs_output* output);
+    [return: NativeTypeName("enum obs_module_load_state")]
+    public static extern obs_module_load_state obs_output_load_state([NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_output_t *")]
+    public static extern obs_output* obs_output_create([NativeTypeName("const char *")] sbyte* id, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_data_t *")] obs_data* settings, [NativeTypeName("obs_data_t *")] obs_data* hotkey_data);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_output_release([NativeTypeName("obs_output_t *")] obs_output* output);
@@ -1827,6 +1832,15 @@ public static unsafe partial class Obs
     public static extern sbyte* obs_get_output_supported_audio_codecs([NativeTypeName("const char *")] sbyte* id);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_output_add_packet_callback([NativeTypeName("obs_output_t *")] obs_output* output, [NativeTypeName("void (*)(obs_output_t *, struct encoder_packet *, struct encoder_packet_time *, void *)")] delegate* unmanaged[Cdecl]<obs_output*, encoder_packet*, encoder_packet_time*, void*, void> packet_cb, void* param2);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_output_remove_packet_callback([NativeTypeName("obs_output_t *")] obs_output* output, [NativeTypeName("void (*)(obs_output_t *, struct encoder_packet *, struct encoder_packet_time *, void *)")] delegate* unmanaged[Cdecl]<obs_output*, encoder_packet*, encoder_packet_time*, void*, void> packet_cb, void* param2);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_output_set_reconnect_callback([NativeTypeName("obs_output_t *")] obs_output* output, [NativeTypeName("bool (*)(void *, obs_output_t *, int)")] delegate* unmanaged[Cdecl]<void*, obs_output*, int, byte> reconnect_cb, void* param2);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void* obs_output_get_type_data([NativeTypeName("obs_output_t *")] obs_output* output);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -1866,16 +1880,20 @@ public static unsafe partial class Obs
     public static extern sbyte* obs_encoder_get_display_name([NativeTypeName("const char *")] sbyte* id);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_module_t *")]
+    public static extern obs_module* obs_encoder_get_module([NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("enum obs_module_load_state")]
+    public static extern obs_module_load_state obs_encoder_load_state([NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_encoder_t *")]
     public static extern obs_encoder* obs_video_encoder_create([NativeTypeName("const char *")] sbyte* id, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_data_t *")] obs_data* settings, [NativeTypeName("obs_data_t *")] obs_data* hotkey_data);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_encoder_t *")]
     public static extern obs_encoder* obs_audio_encoder_create([NativeTypeName("const char *")] sbyte* id, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_data_t *")] obs_data* settings, [NativeTypeName("size_t")] nuint mixer_idx, [NativeTypeName("obs_data_t *")] obs_data* hotkey_data);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_encoder_addref([NativeTypeName("obs_encoder_t *")] obs_encoder* encoder);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_encoder_release([NativeTypeName("obs_encoder_t *")] obs_encoder* encoder);
@@ -1979,6 +1997,10 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("uint32_t")]
+    public static extern uint obs_encoder_get_encoded_frames([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("uint32_t")]
     public static extern uint obs_encoder_get_sample_rate([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -1986,11 +2008,29 @@ public static unsafe partial class Obs
     public static extern nuint obs_encoder_get_frame_size([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("size_t")]
+    public static extern nuint obs_encoder_get_mixer_index([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_encoder_set_preferred_video_format([NativeTypeName("obs_encoder_t *")] obs_encoder* encoder, [NativeTypeName("enum video_format")] video_format format);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("enum video_format")]
     public static extern video_format obs_encoder_get_preferred_video_format([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_encoder_set_preferred_color_space([NativeTypeName("obs_encoder_t *")] obs_encoder* encoder, [NativeTypeName("enum video_colorspace")] video_colorspace colorspace);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("enum video_colorspace")]
+    public static extern video_colorspace obs_encoder_get_preferred_color_space([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_encoder_set_preferred_range([NativeTypeName("obs_encoder_t *")] obs_encoder* encoder, [NativeTypeName("enum video_range_type")] video_range_type range);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("enum video_range_type")]
+    public static extern video_range_type obs_encoder_get_preferred_range([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_data_t *")]
@@ -2030,6 +2070,14 @@ public static unsafe partial class Obs
     public static extern video_output* obs_encoder_video([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("video_t *")]
+    public static extern video_output* obs_encoder_parent_video([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_encoder_video_tex_active([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder, [NativeTypeName("enum video_format")] video_format format);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("audio_t *")]
     public static extern audio_output* obs_encoder_audio([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder);
 
@@ -2051,14 +2099,6 @@ public static unsafe partial class Obs
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("uint32_t")]
     public static extern uint obs_encoder_get_caps([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_duplicate_encoder_packet([NativeTypeName("struct encoder_packet *")] encoder_packet* dst, [NativeTypeName("const struct encoder_packet *")] encoder_packet* src);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_free_encoder_packet([NativeTypeName("struct encoder_packet *")] encoder_packet* packet);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_encoder_packet_ref([NativeTypeName("struct encoder_packet *")] encoder_packet* dst, [NativeTypeName("struct encoder_packet *")] encoder_packet* src);
@@ -2085,8 +2125,27 @@ public static unsafe partial class Obs
     public static extern ulong obs_encoder_get_pause_offset([NativeTypeName("const obs_encoder_t *")] obs_encoder* encoder);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_encoder_set_group([NativeTypeName("obs_encoder_t *")] obs_encoder* encoder, [NativeTypeName("obs_encoder_group_t *")] obs_encoder_group* group);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_encoder_group_t *")]
+    public static extern obs_encoder_group* obs_encoder_group_create();
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_encoder_group_destroy([NativeTypeName("obs_encoder_group_t *")] obs_encoder_group* group);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const char *")]
     public static extern sbyte* obs_service_get_display_name([NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_module_t *")]
+    public static extern obs_module* obs_service_get_module([NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("enum obs_module_load_state")]
+    public static extern obs_module_load_state obs_service_load_state([NativeTypeName("const char *")] sbyte* id);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_service_t *")]
@@ -2095,10 +2154,6 @@ public static unsafe partial class Obs
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("obs_service_t *")]
     public static extern obs_service* obs_service_create_private([NativeTypeName("const char *")] sbyte* id, [NativeTypeName("const char *")] sbyte* name, [NativeTypeName("obs_data_t *")] obs_data* settings);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [Obsolete]
-    public static extern void obs_service_addref([NativeTypeName("obs_service_t *")] obs_service* service);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_service_release([NativeTypeName("obs_service_t *")] obs_service* service);
@@ -2153,26 +2208,6 @@ public static unsafe partial class Obs
     public static extern obs_data* obs_service_get_settings([NativeTypeName("const obs_service_t *")] obs_service* service);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("const char *")]
-    [Obsolete]
-    public static extern sbyte* obs_service_get_url([NativeTypeName("const obs_service_t *")] obs_service* service);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("const char *")]
-    [Obsolete]
-    public static extern sbyte* obs_service_get_key([NativeTypeName("const obs_service_t *")] obs_service* service);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("const char *")]
-    [Obsolete]
-    public static extern sbyte* obs_service_get_username([NativeTypeName("const obs_service_t *")] obs_service* service);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("const char *")]
-    [Obsolete]
-    public static extern sbyte* obs_service_get_password([NativeTypeName("const obs_service_t *")] obs_service* service);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void obs_service_apply_encoder_settings([NativeTypeName("obs_service_t *")] obs_service* service, [NativeTypeName("obs_data_t *")] obs_data* video_encoder_settings, [NativeTypeName("obs_data_t *")] obs_data* audio_encoder_settings);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -2201,11 +2236,6 @@ public static unsafe partial class Obs
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const char *")]
-    [Obsolete]
-    public static extern sbyte* obs_service_get_output_type([NativeTypeName("const obs_service_t *")] obs_service* service);
-
-    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    [return: NativeTypeName("const char *")]
     public static extern sbyte* obs_service_get_protocol([NativeTypeName("const obs_service_t *")] obs_service* service);
 
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -2229,6 +2259,120 @@ public static unsafe partial class Obs
     [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("enum obs_icon_type")]
     public static extern obs_icon_type obs_source_get_icon_type([NativeTypeName("const char *")] sbyte* id);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_canvas_t *")]
+    public static extern obs_canvas* obs_get_main_canvas();
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_canvas_t *")]
+    public static extern obs_canvas* obs_canvas_create([NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct obs_video_info *")] obs_video_info* ovi, [NativeTypeName("uint32_t")] uint flags);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_canvas_t *")]
+    public static extern obs_canvas* obs_canvas_create_private([NativeTypeName("const char *")] sbyte* name, [NativeTypeName("struct obs_video_info *")] obs_video_info* ovi, [NativeTypeName("uint32_t")] uint flags);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_canvas_remove([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_canvas_removed([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_canvas_set_name([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas, [NativeTypeName("const char *")] sbyte* name);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("const char *")]
+    public static extern sbyte* obs_canvas_get_name([NativeTypeName("const obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("const char *")]
+    public static extern sbyte* obs_canvas_get_uuid([NativeTypeName("const obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("uint32_t")]
+    public static extern uint obs_canvas_get_flags([NativeTypeName("const obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_data_t *")]
+    public static extern obs_data* obs_save_canvas([NativeTypeName("obs_canvas_t *")] obs_canvas* source);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_canvas_t *")]
+    public static extern obs_canvas* obs_load_canvas([NativeTypeName("obs_data_t *")] obs_data* data);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_canvas_t *")]
+    public static extern obs_canvas* obs_canvas_get_ref([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_canvas_release([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_weak_canvas_addref([NativeTypeName("obs_weak_canvas_t *")] obs_weak_canvas* weak);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_weak_canvas_release([NativeTypeName("obs_weak_canvas_t *")] obs_weak_canvas* weak);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_weak_canvas_t *")]
+    public static extern obs_weak_canvas* obs_canvas_get_weak_canvas([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_canvas_t *")]
+    public static extern obs_canvas* obs_weak_canvas_get_canvas([NativeTypeName("obs_weak_canvas_t *")] obs_weak_canvas* weak);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("signal_handler_t *")]
+    public static extern signal_handler* obs_canvas_get_signal_handler([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_canvas_set_channel([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas, [NativeTypeName("uint32_t")] uint channel, [NativeTypeName("obs_source_t *")] obs_source* source);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_source_t *")]
+    public static extern obs_source* obs_canvas_get_channel([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas, [NativeTypeName("uint32_t")] uint channel);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_scene_t *")]
+    public static extern obs_scene* obs_canvas_scene_create([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas, [NativeTypeName("const char *")] sbyte* name);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_canvas_scene_remove([NativeTypeName("obs_scene_t *")] obs_scene* scene);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_canvas_move_scene([NativeTypeName("obs_scene_t *")] obs_scene* scene, [NativeTypeName("obs_canvas_t *")] obs_canvas* dst);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_canvas_enum_scenes([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas, [NativeTypeName("bool (*)(void *, obs_source_t *)")] delegate* unmanaged[Cdecl]<void*, obs_source*, byte> enum_proc, void* param2);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_source_t *")]
+    public static extern obs_source* obs_canvas_get_source_by_name([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas, [NativeTypeName("const char *")] sbyte* name);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("obs_scene_t *")]
+    public static extern obs_scene* obs_canvas_get_scene_by_name([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas, [NativeTypeName("const char *")] sbyte* name);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_canvas_reset_video([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas, [NativeTypeName("struct obs_video_info *")] obs_video_info* ovi);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_canvas_has_video([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("video_t *")]
+    public static extern video_output* obs_canvas_get_video([NativeTypeName("const obs_canvas_t *")] obs_canvas* canvas);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [return: NativeTypeName("bool")]
+    public static extern byte obs_canvas_get_video_info([NativeTypeName("const obs_canvas_t *")] obs_canvas* canvas, [NativeTypeName("struct obs_video_info *")] obs_video_info* ovi);
+
+    [DllImport("obs", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void obs_canvas_render([NativeTypeName("obs_canvas_t *")] obs_canvas* canvas);
 
     [NativeTypeName("#define OBS_SOURCE_FRAME_LINEAR_ALPHA (1 << 0)")]
     public const int OBS_SOURCE_FRAME_LINEAR_ALPHA = (1 << 0);

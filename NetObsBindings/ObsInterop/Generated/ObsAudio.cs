@@ -53,7 +53,7 @@ public static unsafe partial class ObsAudio
     [NativeTypeName("#define AUDIO_OUTPUT_FRAMES 1024")]
     public const int AUDIO_OUTPUT_FRAMES = 1024;
 
-    [NativeTypeName("#define TOTAL_AUDIO_SIZE (MAX_AUDIO_MIXES * MAX_AUDIO_CHANNELS * AUDIO_OUTPUT_FRAMES * \\\r\n\t sizeof(float))")]
+    [NativeTypeName("#define TOTAL_AUDIO_SIZE (MAX_AUDIO_MIXES * MAX_AUDIO_CHANNELS * AUDIO_OUTPUT_FRAMES * sizeof(float))")]
     public const ulong TOTAL_AUDIO_SIZE = (6 * 8 * 1024 * 4);
 
     [NativeTypeName("#define AUDIO_OUTPUT_SUCCESS 0")]

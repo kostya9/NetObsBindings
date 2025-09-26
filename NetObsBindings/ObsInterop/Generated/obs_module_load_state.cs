@@ -1,0 +1,12 @@
+namespace ObsInterop;
+
+public enum obs_module_load_state
+{
+    OBS_MODULE_INVALID,
+    OBS_MODULE_ENABLED,
+    OBS_MODULE_MISSING,
+    OBS_MODULE_DISABLED,
+    OBS_MODULE_DISABLED_SAFE,
+    OBS_MODULE_FAILED_TO_OPEN,
+    OBS_MODULE_FAILED_TO_INITIALIZE,
+}

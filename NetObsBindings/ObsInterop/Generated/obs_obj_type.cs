@@ -7,4 +7,5 @@ public enum obs_obj_type
     OBS_OBJ_TYPE_OUTPUT,
     OBS_OBJ_TYPE_ENCODER,
     OBS_OBJ_TYPE_SERVICE,
+    OBS_OBJ_TYPE_CANVAS,
 }
