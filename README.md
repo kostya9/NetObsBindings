@@ -22,6 +22,12 @@ Examples:
 Plugins made using this library:
 - [xObsBrowserAutoRefresh](https://github.com/YorVeX/xObsBrowserAutoRefresh) by [@YorVeX](https://github.com/YorVeX)
     > OBS plugin providing a filter for automatically refreshing a browser source in a configurable interval.
+- [xObsAsyncImageSource](https://github.com/YorVeX/xObsAsyncImageSource) by [@YorVeX](https://github.com/YorVeX)
+    > OBS plugin providing an image source that loads images asynchronously (causing a lot less lag on load).
+- [xObsBeam](https://github.com/YorVeX/xObsBeam) by [@YorVeX](https://github.com/YorVeX)
+    > OBS plugin to transmit video and audio feeds between OBS instances, raw, or with lossless or lossy compression. NDI alternative.
+- [OBS Toolbar](https://github.com/DynamiteAndy/DynamiteAndy.ObsToolbar) by [@DynamiteAndy](https://github.com/DynamiteAndy)
+    > Adds a simple toolbar for easy access to controls; An alternative to the controls dock!
 
 
 
